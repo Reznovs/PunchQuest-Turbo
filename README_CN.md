@@ -31,7 +31,15 @@
 
 ---
 
-### 3. IAP 破解（仅 Unlocked 版本） — `PurchaseWrapperV3.smali` 等
+### 3. 中文字体自适应 — `Cocos2dxBitmap.smali` & `NoodleBitmap.smali`
+
+**问题**：游戏通过 `NoodleBitmap`（Canvas 转 GL 纹理的桥接）和 `Cocos2dxBitmap` 渲染文本。两者创建 `Paint` 后只在显式指定 `.ttf` 时才调用 `setTypeface()`。不设置 Typeface 的情况下，中文字符渲染为方块（tofu）。
+
+**修复**：在两个 `newPaint()` 方法中，Paint 创建后立即设置 `Typeface.DEFAULT`（Android 系统默认字体，天然支持 CJK）。后面如有自定义 .ttf 仍会覆盖默认字体。
+
+---
+
+### 4. IAP 破解（仅 Unlocked 版本） — `PurchaseWrapperV3.smali` 等
 
 > ⚠️ **仅 `PunchQuest-Unlocked.apk` 包含此改动**。Optimized 版本无任何 IAP 修改。
 
@@ -55,8 +63,8 @@
 
 | APK | 包含 |
 |-----|------|
-| **`PunchQuest-Optimized.apk`** | 修改 1、2（性能 + 兼容性）— **无 IAP 改动** |
-| **`PunchQuest-Unlocked.apk`** | 全部 3 项修改 — 性能 + 兼容性 + IAP 破解 |
+| **`PunchQuest-Optimized.apk`** | 修改 1、2、3（性能 + 中文）— **无 IAP 改动** |
+| **`PunchQuest-Unlocked.apk`** | 全部 4 项修改 — 性能 + 中文 + IAP 破解 |
 
 两个 APK 均已完成 zipalign、debug 签名、v1/v2/v3 校验。
 

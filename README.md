@@ -33,7 +33,15 @@ All modifications are documented in the `mods/` directory, with side-by-side dif
 
 ---
 
-### 3. IAP Crack (Unlocked version only) — `PurchaseWrapperV3.smali` & others
+### 3. CJK Font Fallback — `Cocos2dxBitmap.smali` & `NoodleBitmap.smali`
+
+**Problem**: The game renders text through `NoodleBitmap` (a Canvas-to-GL bridge) and `Cocos2dxBitmap`. Both create `android.graphics.Paint` objects but only set a Typeface if a `.ttf` file is explicitly requested. Without a Typeface set, CJK characters render as tofu (□).
+
+**Fix**: Added `paint.setTypeface(Typeface.DEFAULT)` immediately after Paint creation in both `newPaint()` methods. This sets the system default font as a baseline, so CJK characters render correctly even when no custom TTF is loaded. Custom TTF fonts still override the default when specified.
+
+---
+
+### 4. IAP Crack (Unlocked version only) — `PurchaseWrapperV3.smali` & others
 
 > ⚠️ **Only present in `PunchQuest-Unlocked.apk`**. The `Optimized` version has zero IAP modifications.
 
@@ -57,8 +65,8 @@ All modifications are documented in the `mods/` directory, with side-by-side dif
 
 | File | Includes |
 |------|----------|
-| **`PunchQuest-Optimized.apk`** | Fixes 1, 2 (performance + compatibility) — **no IAP changes** |
-| **`PunchQuest-Unlocked.apk`** | All 3 fixes — performance + compatibility + free IAP |
+| **`PunchQuest-Optimized.apk`** | Fixes 1, 2, 3 (performance + CJK) — **no IAP changes** |
+| **`PunchQuest-Unlocked.apk`** | All 4 fixes — performance + CJK + free IAP |
 
 Both APKs are zipaligned, signed with debug keys, and verified (v1/v2/v3 signature).
 
@@ -98,6 +106,8 @@ PunchQuest-Turbo/
 ├── mods/                  # Modified source files
 │   ├── AndroidManifest.xml
 │   ├── Cocos2dxRenderer.smali
+│   ├── Cocos2dxBitmap.smali
+│   ├── NoodleBitmap.smali
 │   ├── PurchaseWrapperV3.smali
 │   ├── PurchaseWrapperV3_SkuSaveListener.smali
 │   ├── punchquest.smali
