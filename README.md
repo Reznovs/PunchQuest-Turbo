@@ -1,6 +1,8 @@
 # PunchQuest-Turbo
 
 > Community performance patch & IAP unlock for **Punch Quest** (v1.2.5) by Rocketcat Games / Noodlecake Studios.
+>
+> [中文文档 (Chinese)](README_CN.md)
 
 **Punch Quest** is a classic arcade-style endless runner released in 2012. It hasn't been updated since **2014**, which means modern Android devices suffer from severe stuttering, 32-bit compatibility issues, and broken IAP flows. This project fixes all of that.
 
