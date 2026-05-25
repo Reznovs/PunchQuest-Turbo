@@ -1,0 +1,15 @@
+﻿--- ORIGINAL: res\values\strings.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ndktest</string>
+</resources>
+
+
++++ MODIFIED: res\values\strings.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">鏍兼枟浠诲姟</string>
+</resources>
+

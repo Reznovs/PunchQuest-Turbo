@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.noodlecake.punchquest">
+    <!-- targetSdkVersion=22 是纯32位应用的最佳平衡点 -->
+    <!-- 28+ 会强制64位优先，但游戏只有 armeabi-v7a (32位) -->
+    <!-- 22 足以获得良好兼容性，又不会触发64位严格模式 -->
+    <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="22"/>
+    <!-- 显式声明使用32位 ABI，让64位手机正确回退到32位模式 -->
+    <uses-feature android:name="android.hardware.screen.portrait" android:required="false"/>
+    <application android:exported="true" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="Punch Quest" android:use32bitAbi="true">
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize|smallestScreenSize|layoutDirection|screenLayout" android:label="Punch Quest" android:launchMode="singleTask" android:name="com.noodlecake.punchquest.punchquest" android:theme="@style/NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="punchquest"/>
+                <data android:host="punchquest.noodlecake.com" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="com.amazon.inapp.purchasing.ResponseReceiver">
+            <intent-filter>
+                <action android:name="com.amazon.inapp.purchasing.NOTIFY" android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="net.robotmedia.billing.BillingService"/>
+        <receiver android:name="net.robotmedia.billing.BillingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.billing.IN_APP_NOTIFY"/>
+                <action android:name="com.android.vending.billing.RESPONSE_CODE"/>
+                <action android:name="com.android.vending.billing.PURCHASE_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.noodlecake.noodlenews.MoreGamesWebView" android:theme="@style/NoActionBar"/>
+        <activity android:name="com.playhaven.src.publishersdk.content.PHContentView" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.crittercism.NotificationActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.vungle.sdk.VungleAdvert" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <service android:name="com.vungle.sdk.VungleIntentService"/>
+    </application>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+</manifest>

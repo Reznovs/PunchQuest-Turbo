@@ -1,0 +1,5928 @@
+﻿--- ORIGINAL: smali\com\noodlecake\punchquest\punchquest.smali
+
+.class public Lcom/noodlecake/punchquest/punchquest;
+.super Lcom/noodlecake/noodlenews/NoodlecakeGameActivity;
+.source "punchquest.java"
+
+
+# static fields
+.field private static TAG:Ljava/lang/String;
+
+.field private static chartboost_appid_free_amazon:Ljava/lang/String;
+
+.field private static chartboost_appid_free_google:Ljava/lang/String;
+
+.field private static chartboost_appid_full_amazon:Ljava/lang/String;
+
+.field private static chartboost_appid_full_google:Ljava/lang/String;
+
+.field private static chartboost_signature_free_amazon:Ljava/lang/String;
+
+.field private static chartboost_signature_free_google:Ljava/lang/String;
+
+.field private static chartboost_signature_full_amazon:Ljava/lang/String;
+
+.field private static chartboost_signature_full_google:Ljava/lang/String;
+
+.field private static crittercism_id_free:Ljava/lang/String;
+
+.field private static crittercism_id_full:Ljava/lang/String;
+
+.field private static flurry_key_free:Ljava/lang/String;
+
+.field private static flurry_key_full:Ljava/lang/String;
+
+.field private static final google_bytes_value:[B
+
+.field private static playhaven_secret_free:Ljava/lang/String;
+
+.field private static playhaven_secret_full:Ljava/lang/String;
+
+.field private static playhaven_token_free:Ljava/lang/String;
+
+.field private static playhaven_token_full:Ljava/lang/String;
+
+.field private static vungle_appid_google:Ljava/lang/String;
+
+
+# instance fields
+.field private chartboost_appid:Ljava/lang/String;
+
+.field private chartboost_signature:Ljava/lang/String;
+
+.field private crittercism_id:Ljava/lang/String;
+
+.field private flurry_key:Ljava/lang/String;
+
+.field private playhaven_secret:Ljava/lang/String;
+
+.field private playhaven_token:Ljava/lang/String;
+
+.field private vungle_appid:Ljava/lang/String;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 8
+
+    .prologue
+    const/16 v7, 0xb
+
+    const/16 v6, 0x9
+
+    const/4 v5, 0x3
+
+    const/4 v4, 0x2
+
+    const/16 v3, 0xf
+
+    .line 31
+    const-string v0, "Punch Quest"
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->TAG:Ljava/lang/String;
+
+    .line 40
+    const-string v0, "PQ4MDZF88W7WHD75VSHX"
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->flurry_key_full:Ljava/lang/String;
+
+    .line 41
+    const-string v0, ""
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->flurry_key_free:Ljava/lang/String;
+
+    .line 43
+    const-string v0, "ec6ae6d716fe4fc1a3bce8d176ef6eff"
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->playhaven_token_full:Ljava/lang/String;
+
+    .line 44
+    const-string v0, "a7377733ace547d69a90e8a795bfe9be"
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->playhaven_secret_full:Ljava/lang/String;
+
+    .line 45
+    const-string v0, ""
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->playhaven_token_free:Ljava/lang/String;
+
+    .line 46
+    const-string v0, ""
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->playhaven_secret_free:Ljava/lang/String;
+
+    .line 48
+    const-string v0, "51127fd117ba478f5800009e"
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid_full_google:Ljava/lang/String;
+
+    .line 49
+    const-string v0, "d091096690834b58f3cefeb9e7a8525c2e25bfad"
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature_full_google:Ljava/lang/String;
+
+    .line 50
+    const-string v0, ""
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid_free_google:Ljava/lang/String;
+
+    .line 51
+    const-string v0, ""
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature_free_google:Ljava/lang/String;
+
+    .line 52
+    const-string v0, "51127fff17ba47595c000047"
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid_full_amazon:Ljava/lang/String;
+
+    .line 53
+    const-string v0, "e2427a671ecf6340ffd88deb1bf8a412401f295f"
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature_full_amazon:Ljava/lang/String;
+
+    .line 54
+    const-string v0, ""
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid_free_amazon:Ljava/lang/String;
+
+    .line 55
+    const-string v0, ""
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature_free_amazon:Ljava/lang/String;
+
+    .line 57
+    const-string v0, "com.noodlecake.punchquest"
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->vungle_appid_google:Ljava/lang/String;
+
+    .line 59
+    const-string v0, "51127c9b421c981ef4000007"
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->crittercism_id_full:Ljava/lang/String;
+
+    .line 60
+    const-string v0, ""
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->crittercism_id_free:Ljava/lang/String;
+
+    .line 62
+    const/16 v0, 0x188
+
+    new-array v0, v0, [B
+
+    const/4 v1, 0x0
+
+    const/16 v2, 0x2b
+
+    aput-byte v2, v0, v1
+
+    const/4 v1, 0x1
+
+    const/16 v2, 0x23
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x22
+
+    aput-byte v1, v0, v4
+
+    const/16 v1, 0x26
+
+    aput-byte v1, v0, v5
+
+    const/4 v1, 0x4
+
+    const/16 v2, 0x3a
+
+    aput-byte v2, v0, v1
+
+    const/4 v1, 0x5
+
+    const/16 v2, 0xc
+
+    aput-byte v2, v0, v1
+
+    const/4 v1, 0x6
+
+    aput-byte v6, v0, v1
+
+    const/4 v1, 0x7
+
+    const/16 v2, 0xa
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x8
+
+    const/16 v2, 0x28
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xc
+
+    aput-byte v1, v0, v6
+
+    const/16 v1, 0xa
+
+    aput-byte v3, v0, v1
+
+    const/16 v1, 0x36
+
+    aput-byte v1, v0, v7
+
+    const/16 v1, 0xc
+
+    const/16 v2, 0x3f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xd
+
+    const/16 v2, 0x23
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xe
+
+    const/16 v2, 0x2e
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x34
+
+    aput-byte v1, v0, v3
+
+    const/16 v1, 0x10
+
+    const/16 v2, 0x55
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x11
+
+    const/16 v2, 0x44
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x12
+
+    const/4 v2, 0x4
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x13
+
+    const/16 v2, 0x71
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x14
+
+    const/16 v2, 0x75
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x15
+
+    const/16 v2, 0x35
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x16
+
+    const/16 v2, 0x36
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x17
+
+    const/16 v2, 0x20
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x18
+
+    const/16 v2, 0x25
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x19
+
+    const/16 v2, 0x72
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x1a
+
+    const/16 v2, 0x7b
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x1b
+
+    const/16 v2, 0x70
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x1c
+
+    const/16 v2, 0x73
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x1d
+
+    const/16 v2, 0x68
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x1e
+
+    const/16 v2, 0x4a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x1f
+
+    const/16 v2, 0x75
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x20
+
+    const/4 v2, 0x5
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x21
+
+    aput-byte v5, v0, v1
+
+    const/16 v1, 0x22
+
+    const/16 v2, 0xe
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x23
+
+    const/4 v2, 0x4
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x24
+
+    const/4 v2, 0x5
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x25
+
+    const/16 v2, 0x55
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x26
+
+    const/16 v2, 0x78
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x27
+
+    const/16 v2, 0x71
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x28
+
+    const/16 v2, 0x77
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x29
+
+    const/16 v2, 0x66
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x2a
+
+    aput-byte v3, v0, v1
+
+    const/16 v1, 0x2b
+
+    aput-byte v6, v0, v1
+
+    const/16 v1, 0x2c
+
+    const/16 v2, 0x20
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x2d
+
+    const/16 v2, 0x20
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x2e
+
+    const/16 v2, 0x31
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x2f
+
+    const/16 v2, 0x57
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x30
+
+    const/16 v2, 0x36
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x31
+
+    const/16 v2, 0x4d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x32
+
+    const/16 v2, 0x55
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x33
+
+    const/16 v2, 0x7d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x34
+
+    const/4 v2, 0x1
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x35
+
+    const/16 v2, 0x31
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x36
+
+    aput-byte v3, v0, v1
+
+    const/16 v1, 0x37
+
+    const/16 v2, 0x3c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x38
+
+    const/16 v2, 0x14
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x39
+
+    aput-byte v4, v0, v1
+
+    const/16 v1, 0x3a
+
+    aput-byte v4, v0, v1
+
+    const/16 v1, 0x3b
+
+    const/16 v2, 0x50
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x3c
+
+    const/16 v2, 0x2a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x3d
+
+    aput-byte v5, v0, v1
+
+    const/16 v1, 0x3e
+
+    const/16 v2, 0x59
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x3f
+
+    const/16 v2, 0x66
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x40
+
+    const/16 v2, 0x6d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x41
+
+    const/4 v2, 0x1
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x42
+
+    const/16 v2, 0x27
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x43
+
+    const/16 v2, 0x1d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x44
+
+    const/16 v2, 0x33
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x45
+
+    const/16 v2, 0x18
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x46
+
+    const/16 v2, 0x25
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x47
+
+    const/16 v2, 0x2e
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x48
+
+    const/16 v2, 0x44
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x49
+
+    aput-byte v7, v0, v1
+
+    const/16 v1, 0x4a
+
+    aput-byte v4, v0, v1
+
+    const/16 v1, 0x4b
+
+    const/16 v2, 0x15
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x4c
+
+    const/16 v2, 0x3e
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x4d
+
+    const/16 v2, 0x49
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x4e
+
+    const/4 v2, 0x7
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x4f
+
+    const/16 v2, 0x40
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x50
+
+    const/16 v2, 0x58
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x51
+
+    const/16 v2, 0x4b
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x52
+
+    const/16 v2, 0x54
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x53
+
+    const/16 v2, 0x6e
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x54
+
+    const/16 v2, 0x22
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x55
+
+    const/4 v2, 0x5
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x57
+
+    const/16 v2, 0x34
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x58
+
+    aput-byte v7, v0, v1
+
+    const/16 v1, 0x59
+
+    const/16 v2, 0x7c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x5a
+
+    const/16 v2, 0x36
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x5b
+
+    const/16 v2, 0x27
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x5c
+
+    const/16 v2, 0x27
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x5d
+
+    const/16 v2, 0x13
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x5e
+
+    const/16 v2, 0x1b
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x5f
+
+    const/16 v2, 0x12
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x60
+
+    const/16 v2, 0x5f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x61
+
+    const/16 v2, 0x50
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x62
+
+    aput-byte v6, v0, v1
+
+    const/16 v1, 0x63
+
+    aput-byte v7, v0, v1
+
+    const/16 v1, 0x64
+
+    const/16 v2, 0x8
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x65
+
+    const/16 v2, 0x10
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x66
+
+    aput-byte v7, v0, v1
+
+    const/16 v1, 0x67
+
+    const/16 v2, 0x4d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x68
+
+    const/16 v2, 0x7c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x69
+
+    const/16 v2, 0x12
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x6a
+
+    aput-byte v5, v0, v1
+
+    const/16 v1, 0x6b
+
+    const/16 v2, 0x18
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x6c
+
+    const/4 v2, 0x6
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x6d
+
+    const/16 v2, 0x3d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x6e
+
+    aput-byte v5, v0, v1
+
+    const/16 v1, 0x6f
+
+    const/16 v2, 0x22
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x70
+
+    const/4 v2, 0x6
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x71
+
+    const/16 v2, 0xa
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x72
+
+    const/4 v2, 0x7
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x73
+
+    const/16 v2, 0x6a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x74
+
+    const/4 v2, 0x7
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x75
+
+    const/16 v2, 0x71
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x76
+
+    const/16 v2, 0x53
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x77
+
+    const/16 v2, 0x2e
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x78
+
+    const/16 v2, 0x24
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x79
+
+    const/16 v2, 0x53
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x7a
+
+    const/16 v2, 0x28
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x7b
+
+    const/16 v2, 0x49
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x7c
+
+    const/16 v2, 0x58
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x7d
+
+    const/16 v2, 0x5b
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x7e
+
+    const/16 v2, 0x5f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x7f
+
+    const/16 v2, 0x51
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x80
+
+    const/16 v2, 0x26
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x81
+
+    const/16 v2, 0x43
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x82
+
+    const/16 v2, 0x3c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x84
+
+    const/16 v2, 0x29
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x85
+
+    const/16 v2, 0x2b
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x86
+
+    const/16 v2, 0x71
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x87
+
+    const/16 v2, 0x67
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x88
+
+    const/16 v2, 0x60
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x89
+
+    const/16 v2, 0x5b
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x8a
+
+    const/16 v2, 0x75
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x8b
+
+    const/16 v2, 0x75
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x8c
+
+    const/16 v2, 0x2c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x8d
+
+    const/16 v2, 0x19
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x8e
+
+    const/4 v2, 0x5
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x8f
+
+    const/16 v2, 0x54
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x90
+
+    const/16 v2, 0xe
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x91
+
+    const/16 v2, 0x52
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x92
+
+    const/16 v2, 0x40
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x93
+
+    const/16 v2, 0x32
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x94
+
+    const/16 v2, 0x19
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x95
+
+    const/4 v2, 0x1
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x96
+
+    const/16 v2, 0x26
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x97
+
+    const/16 v2, 0x25
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x98
+
+    aput-byte v5, v0, v1
+
+    const/16 v1, 0x99
+
+    const/4 v2, 0x7
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x9a
+
+    const/16 v2, 0x30
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x9b
+
+    const/16 v2, 0x32
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x9c
+
+    const/16 v2, 0x29
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x9d
+
+    const/16 v2, 0x30
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x9e
+
+    const/16 v2, 0x34
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x9f
+
+    const/16 v2, 0x38
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xa0
+
+    const/16 v2, 0x43
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xa1
+
+    const/16 v2, 0x5b
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xa2
+
+    const/16 v2, 0x45
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xa3
+
+    const/16 v2, 0x45
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xa4
+
+    const/16 v2, 0x17
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xa5
+
+    const/16 v2, 0x44
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xa7
+
+    const/16 v2, 0x31
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xa8
+
+    aput-byte v5, v0, v1
+
+    const/16 v1, 0xa9
+
+    const/16 v2, 0x15
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xaa
+
+    const/16 v2, 0x1f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xab
+
+    aput-byte v6, v0, v1
+
+    const/16 v1, 0xac
+
+    const/16 v2, 0x2a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xad
+
+    aput-byte v4, v0, v1
+
+    const/16 v1, 0xae
+
+    aput-byte v3, v0, v1
+
+    const/16 v1, 0xaf
+
+    const/16 v2, 0x16
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xb0
+
+    const/16 v2, 0x69
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xb1
+
+    const/16 v2, 0x47
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xb2
+
+    const/4 v2, 0x6
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xb3
+
+    const/16 v2, 0x5d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xb4
+
+    const/16 v2, 0x64
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xb5
+
+    const/16 v2, 0x74
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xb6
+
+    const/16 v2, 0x37
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xb7
+
+    const/16 v2, 0x5f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xb8
+
+    const/4 v2, 0x4
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xb9
+
+    aput-byte v4, v0, v1
+
+    const/16 v1, 0xba
+
+    const/16 v2, 0x26
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xbb
+
+    const/16 v2, 0x2e
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xbc
+
+    const/16 v2, 0x13
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xbd
+
+    const/16 v2, 0x1e
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xbe
+
+    const/4 v2, 0x4
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xbf
+
+    const/16 v2, 0x15
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xc0
+
+    const/16 v2, 0x2d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xc1
+
+    const/16 v2, 0x22
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xc2
+
+    const/16 v2, 0x5d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xc3
+
+    const/16 v2, 0x4b
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xc4
+
+    const/16 v2, 0x20
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xc5
+
+    const/16 v2, 0x1d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xc6
+
+    const/16 v2, 0xd
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xc7
+
+    const/16 v2, 0xc
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xc8
+
+    const/16 v2, 0x24
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xc9
+
+    const/16 v2, 0x56
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xca
+
+    const/16 v2, 0x19
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xcb
+
+    const/16 v2, 0x34
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xcc
+
+    const/16 v2, 0x2f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xcd
+
+    const/16 v2, 0x40
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xce
+
+    const/16 v2, 0x2d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xcf
+
+    const/16 v2, 0x21
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xd0
+
+    const/16 v2, 0x1c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xd1
+
+    const/16 v2, 0x11
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xd2
+
+    const/16 v2, 0x74
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xd3
+
+    const/16 v2, 0x45
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xd4
+
+    const/16 v2, 0x1e
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xd5
+
+    aput-byte v4, v0, v1
+
+    const/16 v1, 0xd6
+
+    const/16 v2, 0x6d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xd7
+
+    const/16 v2, 0x45
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xd8
+
+    const/16 v2, 0x51
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xd9
+
+    const/16 v2, 0x51
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xda
+
+    const/16 v2, 0x25
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xdb
+
+    aput-byte v3, v0, v1
+
+    const/16 v1, 0xdc
+
+    const/16 v2, 0x2f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xdd
+
+    const/16 v2, 0x74
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xde
+
+    const/16 v2, 0x7f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xdf
+
+    const/16 v2, 0xa
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xe0
+
+    const/4 v2, 0x6
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xe1
+
+    const/16 v2, 0x6a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xe2
+
+    aput-byte v4, v0, v1
+
+    const/16 v1, 0xe3
+
+    const/16 v2, 0x64
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xe4
+
+    const/16 v2, 0x30
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xe5
+
+    const/16 v2, 0x7c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xe6
+
+    const/16 v2, 0x28
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xe7
+
+    const/16 v2, 0x15
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xe8
+
+    const/16 v2, 0xd
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xe9
+
+    const/16 v2, 0x7d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xea
+
+    const/16 v2, 0x43
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xeb
+
+    const/16 v2, 0x70
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xec
+
+    const/16 v2, 0x55
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xed
+
+    const/16 v2, 0x5c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xee
+
+    const/16 v2, 0x2c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xef
+
+    const/16 v2, 0xa
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xf0
+
+    const/16 v2, 0x7d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xf1
+
+    aput-byte v6, v0, v1
+
+    const/16 v1, 0xf2
+
+    aput-byte v3, v0, v1
+
+    const/16 v1, 0xf3
+
+    const/16 v2, 0x28
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xf4
+
+    const/16 v2, 0x40
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xf5
+
+    aput-byte v7, v0, v1
+
+    const/16 v1, 0xf6
+
+    const/16 v2, 0x6a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xf7
+
+    const/16 v2, 0x13
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xf8
+
+    const/16 v2, 0x3a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xf9
+
+    const/16 v2, 0x3d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xfa
+
+    const/16 v2, 0x50
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xfb
+
+    const/4 v2, 0x5
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xfc
+
+    aput-byte v3, v0, v1
+
+    const/16 v1, 0xfd
+
+    const/16 v2, 0x2f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xfe
+
+    const/16 v2, 0x55
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xff
+
+    const/16 v2, 0x2d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x100
+
+    const/16 v2, 0x2c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x101
+
+    const/16 v2, 0x23
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x102
+
+    const/16 v2, 0x45
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x103
+
+    const/16 v2, 0x5c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x104
+
+    const/16 v2, 0x4d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x105
+
+    const/16 v2, 0x5a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x106
+
+    const/16 v2, 0x22
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x107
+
+    const/16 v2, 0x40
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x108
+
+    const/16 v2, 0x36
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x109
+
+    const/16 v2, 0xd
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x10a
+
+    const/16 v2, 0x3b
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x10b
+
+    const/16 v2, 0x54
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x10c
+
+    const/4 v2, 0x7
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x10d
+
+    const/16 v2, 0x21
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x10e
+
+    const/16 v2, 0x5f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x111
+
+    const/16 v2, 0xc
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x112
+
+    const/16 v2, 0x77
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x113
+
+    const/16 v2, 0x75
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x114
+
+    const/16 v2, 0x78
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x115
+
+    const/16 v2, 0x76
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x116
+
+    const/16 v2, 0x58
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x117
+
+    const/16 v2, 0x4f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x118
+
+    const/4 v2, 0x4
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x119
+
+    const/16 v2, 0x21
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x11a
+
+    const/16 v2, 0x25
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x11b
+
+    const/16 v2, 0x2a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x11c
+
+    const/16 v2, 0xa
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x11d
+
+    const/16 v2, 0x1d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x11e
+
+    aput-byte v7, v0, v1
+
+    const/16 v1, 0x11f
+
+    const/16 v2, 0x13
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x120
+
+    const/16 v2, 0x1f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x121
+
+    const/16 v2, 0x29
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x122
+
+    const/16 v2, 0x43
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x123
+
+    const/16 v2, 0x59
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x124
+
+    const/16 v2, 0x57
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x125
+
+    const/16 v2, 0x7a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x126
+
+    const/16 v2, 0x3f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x127
+
+    const/16 v2, 0x1d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x128
+
+    const/16 v2, 0x3d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x129
+
+    const/16 v2, 0x33
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x12a
+
+    const/16 v2, 0x37
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x12b
+
+    const/16 v2, 0x21
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x12c
+
+    const/16 v2, 0x2f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x12d
+
+    const/16 v2, 0x7d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x12e
+
+    const/16 v2, 0x1a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x12f
+
+    const/16 v2, 0x2a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x130
+
+    const/16 v2, 0x2a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x131
+
+    const/4 v2, 0x4
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x132
+
+    const/16 v2, 0xe
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x133
+
+    const/16 v2, 0x19
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x134
+
+    const/16 v2, 0x33
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x135
+
+    const/16 v2, 0x44
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x136
+
+    const/16 v2, 0x3f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x137
+
+    const/16 v2, 0x5c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x138
+
+    const/16 v2, 0x41
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x139
+
+    const/16 v2, 0x76
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x13a
+
+    const/16 v2, 0x50
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x13b
+
+    const/16 v2, 0x1d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x13c
+
+    const/16 v2, 0x32
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x13d
+
+    const/16 v2, 0x28
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x13e
+
+    const/16 v2, 0x23
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x13f
+
+    const/16 v2, 0x69
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x140
+
+    const/16 v2, 0x67
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x141
+
+    const/16 v2, 0x61
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x142
+
+    const/16 v2, 0x7e
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x143
+
+    const/16 v2, 0x69
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x144
+
+    const/16 v2, 0x37
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x145
+
+    const/16 v2, 0x40
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x146
+
+    const/16 v2, 0x7b
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x147
+
+    const/16 v2, 0x61
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x148
+
+    const/16 v2, 0x12
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x149
+
+    aput-byte v3, v0, v1
+
+    const/16 v1, 0x14a
+
+    const/16 v2, 0x30
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x14c
+
+    const/4 v2, 0x1
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x14d
+
+    aput-byte v5, v0, v1
+
+    const/16 v1, 0x14e
+
+    const/16 v2, 0x5d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x14f
+
+    const/16 v2, 0x44
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x150
+
+    const/16 v2, 0xc
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x151
+
+    const/16 v2, 0xc
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x152
+
+    const/16 v2, 0x1e
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x153
+
+    const/16 v2, 0x21
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x154
+
+    const/16 v2, 0x55
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x155
+
+    const/16 v2, 0x24
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x156
+
+    const/16 v2, 0x30
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x157
+
+    const/4 v2, 0x5
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x158
+
+    const/16 v2, 0x42
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x159
+
+    const/16 v2, 0x29
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x15a
+
+    aput-byte v7, v0, v1
+
+    const/16 v1, 0x15b
+
+    const/16 v2, 0x60
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x15c
+
+    const/16 v2, 0x4d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x15d
+
+    const/16 v2, 0x2b
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x15e
+
+    const/16 v2, 0x51
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x15f
+
+    const/16 v2, 0x2c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x160
+
+    const/16 v2, 0x3c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x161
+
+    const/16 v2, 0x2d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x162
+
+    const/16 v2, 0x5f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x163
+
+    const/16 v2, 0x47
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x164
+
+    const/16 v2, 0x59
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x165
+
+    const/16 v2, 0x7d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x166
+
+    const/16 v2, 0x52
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x167
+
+    const/16 v2, 0x74
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x168
+
+    aput-byte v3, v0, v1
+
+    const/16 v1, 0x169
+
+    const/16 v2, 0x27
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x16a
+
+    const/4 v2, 0x1
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x16b
+
+    const/16 v2, 0x32
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x16c
+
+    const/16 v2, 0x28
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x16d
+
+    const/16 v2, 0x10
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x16e
+
+    aput-byte v6, v0, v1
+
+    const/16 v1, 0x16f
+
+    const/16 v2, 0x30
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x170
+
+    const/16 v2, 0x3e
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x171
+
+    const/16 v2, 0x23
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x172
+
+    const/16 v2, 0x24
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x173
+
+    const/16 v2, 0x30
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x174
+
+    const/16 v2, 0x5f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x175
+
+    const/16 v2, 0x1f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x176
+
+    const/16 v2, 0x40
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x177
+
+    const/16 v2, 0x5c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x178
+
+    const/16 v2, 0x72
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x179
+
+    const/16 v2, 0x60
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x17a
+
+    const/16 v2, 0x1c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x17b
+
+    const/16 v2, 0x29
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x17c
+
+    const/16 v2, 0x3f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x17d
+
+    const/16 v2, 0xa
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x17e
+
+    const/16 v2, 0xd
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x17f
+
+    aput-byte v6, v0, v1
+
+    const/16 v1, 0x180
+
+    const/16 v2, 0x75
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x182
+
+    const/16 v2, 0x2f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x183
+
+    const/16 v2, 0x23
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x184
+
+    const/16 v2, 0x29
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x185
+
+    const/16 v2, 0x39
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x186
+
+    const/16 v2, 0x72
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x187
+
+    const/16 v2, 0x7a
+
+    aput-byte v2, v0, v1
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->google_bytes_value:[B
+
+    .line 187
+    const-string v0, "punchquest"
+
+    const-string v1, "static load libs start"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 189
+    const-string v0, "gnustl_shared"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 190
+    const-string v0, "objc"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 191
+    const-string v0, "foundation"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 192
+    const-string v0, "dispatch"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 193
+    const-string v0, "coregraphics"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 194
+    const-string v0, "quartzcore"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 195
+    const-string v0, "uikit"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 196
+    const-string v0, "cocos2d"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 197
+    const-string v0, "noodle"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 198
+    const-string v0, "storekit"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 199
+    const-string v0, "gameservices"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 200
+    const-string v0, "ogg"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 201
+    const-string v0, "vorbis"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 202
+    const-string v0, "openal"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 203
+    const-string v0, "cocosdenshion_al"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 204
+    const-string v0, "game"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 206
+    const-string v0, "punchquest"
+
+    const-string v1, "static load libs finished"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 207
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 1
+
+    .prologue
+    const/4 v0, 0x1
+
+    .line 65
+    invoke-direct {p0, v0, v0, v0}, Lcom/noodlecake/noodlenews/NoodlecakeGameActivity;-><init>(ZZZ)V
+
+    .line 66
+    invoke-direct {p0}, Lcom/noodlecake/punchquest/punchquest;->setAPIKeys()V
+
+    .line 67
+    return-void
+.end method
+
+.method private setAPIKeys()V
+    .locals 2
+
+    .prologue
+    .line 70
+    const/16 v0, 0x28
+
+    iget v1, p0, Lcom/noodlecake/punchquest/punchquest;->version:I
+
+    if-ne v0, v1, :cond_3
+
+    .line 71
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->TAG:Ljava/lang/String;
+
+    const-string v1, "using free version API keys"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 72
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->flurry_key_free:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->flurry_key:Ljava/lang/String;
+
+    .line 73
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->playhaven_token_free:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->playhaven_token:Ljava/lang/String;
+
+    .line 74
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->playhaven_secret_free:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->playhaven_secret:Ljava/lang/String;
+
+    .line 75
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->crittercism_id_free:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->crittercism_id:Ljava/lang/String;
+
+    .line 76
+    iget v0, p0, Lcom/noodlecake/punchquest/punchquest;->platform:I
+
+    if-nez v0, :cond_2
+
+    .line 77
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->TAG:Ljava/lang/String;
+
+    const-string v1, "using google API keys"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 78
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid_free_google:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid:Ljava/lang/String;
+
+    .line 79
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature_free_google:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature:Ljava/lang/String;
+
+    .line 80
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->vungle_appid_google:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->vungle_appid:Ljava/lang/String;
+
+    .line 106
+    :cond_0
+    :goto_0
+    iget v0, p0, Lcom/noodlecake/punchquest/punchquest;->platform:I
+
+    if-nez v0, :cond_1
+
+    .line 107
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->google_bytes_value:[B
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->google_bytes:[B
+
+    .line 109
+    :cond_1
+    return-void
+
+    .line 82
+    :cond_2
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->TAG:Ljava/lang/String;
+
+    const-string v1, "using amazon API keys"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 83
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid_free_amazon:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid:Ljava/lang/String;
+
+    .line 84
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature_free_amazon:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature:Ljava/lang/String;
+
+    .line 85
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->vungle_appid_google:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->vungle_appid:Ljava/lang/String;
+
+    goto :goto_0
+
+    .line 87
+    :cond_3
+    const/16 v0, 0x1e
+
+    iget v1, p0, Lcom/noodlecake/punchquest/punchquest;->version:I
+
+    if-ne v0, v1, :cond_0
+
+    .line 88
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->TAG:Ljava/lang/String;
+
+    const-string v1, "using full version API keys"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 89
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->flurry_key_full:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->flurry_key:Ljava/lang/String;
+
+    .line 90
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->playhaven_token_full:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->playhaven_token:Ljava/lang/String;
+
+    .line 91
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->playhaven_secret_full:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->playhaven_secret:Ljava/lang/String;
+
+    .line 92
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->crittercism_id_full:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->crittercism_id:Ljava/lang/String;
+
+    .line 93
+    iget v0, p0, Lcom/noodlecake/punchquest/punchquest;->platform:I
+
+    if-nez v0, :cond_4
+
+    .line 94
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->TAG:Ljava/lang/String;
+
+    const-string v1, "using google API keys"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 95
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid_full_google:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid:Ljava/lang/String;
+
+    .line 96
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature_full_google:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature:Ljava/lang/String;
+
+    .line 97
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->vungle_appid_google:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->vungle_appid:Ljava/lang/String;
+
+    goto :goto_0
+
+    .line 99
+    :cond_4
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->TAG:Ljava/lang/String;
+
+    const-string v1, "using amazon API keys"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 100
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid_full_amazon:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid:Ljava/lang/String;
+
+    .line 101
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature_full_amazon:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature:Ljava/lang/String;
+
+    .line 102
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->vungle_appid_google:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->vungle_appid:Ljava/lang/String;
+
+    goto :goto_0
+.end method
+
+.method private trySetImmersive()V
+    .locals 3
+
+    .prologue
+    .line 133
+    const v1, 0x7f060001
+
+    invoke-virtual {p0, v1}, Lcom/noodlecake/punchquest/punchquest;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Lorg/cocos2dx/lib/Cocos2dxGLSurfaceView;
+
+    iput-object v1, p0, Lcom/noodlecake/punchquest/punchquest;->mGLView:Lorg/cocos2dx/lib/Cocos2dxGLSurfaceView;
+
+    .line 135
+    const/4 v0, 0x0
+
+    .line 136
+    .local v0, "visibilityFlags":I
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v2, 0x13
+
+    if-lt v1, v2, :cond_1
+
+    .line 137
+    or-int/lit16 v0, v0, 0x100
+
+    .line 138
+    or-int/lit16 v0, v0, 0x200
+
+    .line 139
+    or-int/lit16 v0, v0, 0x400
+
+    .line 140
+    or-int/lit8 v0, v0, 0x4
+
+    .line 141
+    or-int/lit8 v0, v0, 0x2
+
+    .line 142
+    or-int/lit16 v0, v0, 0x1000
+
+    .line 143
+    iget-object v1, p0, Lcom/noodlecake/punchquest/punchquest;->mGLView:Lorg/cocos2dx/lib/Cocos2dxGLSurfaceView;
+
+    invoke-virtual {v1, v0}, Lorg/cocos2dx/lib/Cocos2dxGLSurfaceView;->setSystemUiVisibility(I)V
+
+    .line 156
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 145
+    :cond_1
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v2, 0xe
+
+    if-lt v1, v2, :cond_2
+
+    .line 146
+    or-int/lit8 v0, v0, 0x1
+
+    .line 147
+    iget-object v1, p0, Lcom/noodlecake/punchquest/punchquest;->mGLView:Lorg/cocos2dx/lib/Cocos2dxGLSurfaceView;
+
+    invoke-virtual {v1, v0}, Lorg/cocos2dx/lib/Cocos2dxGLSurfaceView;->setSystemUiVisibility(I)V
+
+    goto :goto_0
+
+    .line 149
+    :cond_2
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v2, 0xb
+
+    if-lt v1, v2, :cond_0
+
+    .line 151
+    or-int/lit8 v0, v0, 0x1
+
+    .line 152
+    iget-object v1, p0, Lcom/noodlecake/punchquest/punchquest;->mGLView:Lorg/cocos2dx/lib/Cocos2dxGLSurfaceView;
+
+    invoke-virtual {v1, v0}, Lorg/cocos2dx/lib/Cocos2dxGLSurfaceView;->setSystemUiVisibility(I)V
+
+    goto :goto_0
+.end method
+
+
+# virtual methods
+.method public onBackPressed()V
+    .locals 1
+
+    .prologue
+    .line 180
+    invoke-static {}, Lcom/noodlecake/ads/InterstitialController;->onBackPressed()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 184
+    :goto_0
+    return-void
+
+    .line 183
+    :cond_0
+    invoke-super {p0}, Lcom/noodlecake/noodlenews/NoodlecakeGameActivity;->onBackPressed()V
+
+    goto :goto_0
+.end method
+
+.method protected onCreate(Landroid/os/Bundle;)V
+    .locals 6
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
+
+    .prologue
+    .line 159
+    const/high16 v0, 0x7f030000
+
+    const v1, 0x7f060001
+
+    const/high16 v2, 0x7f060000
+
+    invoke-super {p0, p1, v0, v1, v2}, Lcom/noodlecake/noodlenews/NoodlecakeGameActivity;->onCreate(Landroid/os/Bundle;III)V
+
+    .line 161
+    iget-object v1, p0, Lcom/noodlecake/punchquest/punchquest;->playhaven_token:Ljava/lang/String;
+
+    iget-object v2, p0, Lcom/noodlecake/punchquest/punchquest;->playhaven_secret:Ljava/lang/String;
+
+    iget-object v3, p0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid:Ljava/lang/String;
+
+    iget-object v4, p0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature:Ljava/lang/String;
+
+    const/4 v5, 0x0
+
+    move-object v0, p0
+
+    invoke-static/range {v0 .. v5}, Lcom/noodlecake/ads/InterstitialController;->init(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 162
+    invoke-static {}, Lcom/noodlecake/ads/InterstitialController;->onCreate()V
+
+    .line 163
+    const/4 v0, 0x1
+
+    invoke-static {v0}, Lcom/noodlecake/ads/InterstitialController;->setMinimumIntervalInMinutes(I)V
+
+    .line 165
+    iget-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->vungle_appid:Ljava/lang/String;
+
+    invoke-static {v0, p0}, Lcom/noodlecake/ads/VungleIncentivized;->init(Ljava/lang/String;Landroid/app/Activity;)V
+
+    .line 167
+    new-instance v0, Lcom/noodlecake/noodlenews/NoodleGameServices;
+
+    invoke-direct {v0, p0}, Lcom/noodlecake/noodlenews/NoodleGameServices;-><init>(Landroid/app/Activity;)V
+
+    .line 168
+    invoke-static {}, Lcom/noodlecake/noodlenews/NoodleGameServices;->setPopUpLocation()V
+
+    .line 169
+    return-void
+.end method
+
+.method public onDestroy()V
+    .locals 0
+
+    .prologue
+    .line 172
+    invoke-static {}, Lcom/noodlecake/ads/InterstitialController;->onDestroy()V
+
+    .line 173
+    invoke-super {p0}, Lcom/noodlecake/noodlenews/NoodlecakeGameActivity;->onDestroy()V
+
+    .line 174
+    return-void
+.end method
+
+.method public onStart()V
+    .locals 2
+
+    .prologue
+    .line 112
+    invoke-super {p0}, Lcom/noodlecake/noodlenews/NoodlecakeGameActivity;->onStart()V
+
+    .line 114
+    const-wide/16 v0, 0x7530
+
+    invoke-static {v0, v1}, Lcom/flurry/android/FlurryAgent;->setContinueSessionMillis(J)V
+
+    .line 115
+    iget-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->flurry_key:Ljava/lang/String;
+
+    invoke-static {p0, v0}, Lcom/flurry/android/FlurryAgent;->onStartSession(Landroid/content/Context;Ljava/lang/String;)V
+
+    .line 117
+    invoke-static {}, Lcom/noodlecake/ads/InterstitialController;->onStart()V
+
+    .line 118
+    return-void
+.end method
+
+.method public onStop()V
+    .locals 0
+
+    .prologue
+    .line 121
+    invoke-super {p0}, Lcom/noodlecake/noodlenews/NoodlecakeGameActivity;->onStop()V
+
+    .line 122
+    invoke-static {p0}, Lcom/flurry/android/FlurryAgent;->onEndSession(Landroid/content/Context;)V
+
+    .line 123
+    invoke-static {}, Lcom/noodlecake/ads/InterstitialController;->onStop()V
+
+    .line 124
+    return-void
+.end method
+
+.method public onWindowFocusChanged(Z)V
+    .locals 0
+    .param p1, "hasFocus"    # Z
+
+    .prologue
+    .line 127
+    invoke-super {p0, p1}, Lcom/noodlecake/noodlenews/NoodlecakeGameActivity;->onWindowFocusChanged(Z)V
+
+    .line 128
+    invoke-direct {p0}, Lcom/noodlecake/punchquest/punchquest;->trySetImmersive()V
+
+    .line 129
+    return-void
+.end method
+
+
++++ MODIFIED: smali\com\noodlecake\punchquest\punchquest.smali
+
+.class public Lcom/noodlecake/punchquest/punchquest;
+.super Lcom/noodlecake/noodlenews/NoodlecakeGameActivity;
+.source "punchquest.java"
+
+
+# static fields
+.field private static TAG:Ljava/lang/String;
+
+.field private static chartboost_appid_free_amazon:Ljava/lang/String;
+
+.field private static chartboost_appid_free_google:Ljava/lang/String;
+
+.field private static chartboost_appid_full_amazon:Ljava/lang/String;
+
+.field private static chartboost_appid_full_google:Ljava/lang/String;
+
+.field private static chartboost_signature_free_amazon:Ljava/lang/String;
+
+.field private static chartboost_signature_free_google:Ljava/lang/String;
+
+.field private static chartboost_signature_full_amazon:Ljava/lang/String;
+
+.field private static chartboost_signature_full_google:Ljava/lang/String;
+
+.field private static crittercism_id_free:Ljava/lang/String;
+
+.field private static crittercism_id_full:Ljava/lang/String;
+
+.field private static flurry_key_free:Ljava/lang/String;
+
+.field private static flurry_key_full:Ljava/lang/String;
+
+.field private static final google_bytes_value:[B
+
+.field private static playhaven_secret_free:Ljava/lang/String;
+
+.field private static playhaven_secret_full:Ljava/lang/String;
+
+.field private static playhaven_token_free:Ljava/lang/String;
+
+.field private static playhaven_token_full:Ljava/lang/String;
+
+.field private static vungle_appid_google:Ljava/lang/String;
+
+
+# instance fields
+.field private chartboost_appid:Ljava/lang/String;
+
+.field private chartboost_signature:Ljava/lang/String;
+
+.field private crittercism_id:Ljava/lang/String;
+
+.field private flurry_key:Ljava/lang/String;
+
+.field private playhaven_secret:Ljava/lang/String;
+
+.field private playhaven_token:Ljava/lang/String;
+
+.field private vungle_appid:Ljava/lang/String;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 8
+
+    .prologue
+    const/16 v7, 0xb
+
+    const/16 v6, 0x9
+
+    const/4 v5, 0x3
+
+    const/4 v4, 0x2
+
+    const/16 v3, 0xf
+
+    .line 31
+    const-string v0, "Punch Quest"
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->TAG:Ljava/lang/String;
+
+    .line 40
+    const-string v0, "PQ4MDZF88W7WHD75VSHX"
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->flurry_key_full:Ljava/lang/String;
+
+    .line 41
+    const-string v0, ""
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->flurry_key_free:Ljava/lang/String;
+
+    .line 43
+    const-string v0, "ec6ae6d716fe4fc1a3bce8d176ef6eff"
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->playhaven_token_full:Ljava/lang/String;
+
+    .line 44
+    const-string v0, "a7377733ace547d69a90e8a795bfe9be"
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->playhaven_secret_full:Ljava/lang/String;
+
+    .line 45
+    const-string v0, ""
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->playhaven_token_free:Ljava/lang/String;
+
+    .line 46
+    const-string v0, ""
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->playhaven_secret_free:Ljava/lang/String;
+
+    .line 48
+    const-string v0, "51127fd117ba478f5800009e"
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid_full_google:Ljava/lang/String;
+
+    .line 49
+    const-string v0, "d091096690834b58f3cefeb9e7a8525c2e25bfad"
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature_full_google:Ljava/lang/String;
+
+    .line 50
+    const-string v0, ""
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid_free_google:Ljava/lang/String;
+
+    .line 51
+    const-string v0, ""
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature_free_google:Ljava/lang/String;
+
+    .line 52
+    const-string v0, "51127fff17ba47595c000047"
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid_full_amazon:Ljava/lang/String;
+
+    .line 53
+    const-string v0, "e2427a671ecf6340ffd88deb1bf8a412401f295f"
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature_full_amazon:Ljava/lang/String;
+
+    .line 54
+    const-string v0, ""
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid_free_amazon:Ljava/lang/String;
+
+    .line 55
+    const-string v0, ""
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature_free_amazon:Ljava/lang/String;
+
+    .line 57
+    const-string v0, "com.noodlecake.punchquest"
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->vungle_appid_google:Ljava/lang/String;
+
+    .line 59
+    const-string v0, "51127c9b421c981ef4000007"
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->crittercism_id_full:Ljava/lang/String;
+
+    .line 60
+    const-string v0, ""
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->crittercism_id_free:Ljava/lang/String;
+
+    .line 62
+    const/16 v0, 0x188
+
+    new-array v0, v0, [B
+
+    const/4 v1, 0x0
+
+    const/16 v2, 0x2b
+
+    aput-byte v2, v0, v1
+
+    const/4 v1, 0x1
+
+    const/16 v2, 0x23
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x22
+
+    aput-byte v1, v0, v4
+
+    const/16 v1, 0x26
+
+    aput-byte v1, v0, v5
+
+    const/4 v1, 0x4
+
+    const/16 v2, 0x3a
+
+    aput-byte v2, v0, v1
+
+    const/4 v1, 0x5
+
+    const/16 v2, 0xc
+
+    aput-byte v2, v0, v1
+
+    const/4 v1, 0x6
+
+    aput-byte v6, v0, v1
+
+    const/4 v1, 0x7
+
+    const/16 v2, 0xa
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x8
+
+    const/16 v2, 0x28
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xc
+
+    aput-byte v1, v0, v6
+
+    const/16 v1, 0xa
+
+    aput-byte v3, v0, v1
+
+    const/16 v1, 0x36
+
+    aput-byte v1, v0, v7
+
+    const/16 v1, 0xc
+
+    const/16 v2, 0x3f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xd
+
+    const/16 v2, 0x23
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xe
+
+    const/16 v2, 0x2e
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x34
+
+    aput-byte v1, v0, v3
+
+    const/16 v1, 0x10
+
+    const/16 v2, 0x55
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x11
+
+    const/16 v2, 0x44
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x12
+
+    const/4 v2, 0x4
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x13
+
+    const/16 v2, 0x71
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x14
+
+    const/16 v2, 0x75
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x15
+
+    const/16 v2, 0x35
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x16
+
+    const/16 v2, 0x36
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x17
+
+    const/16 v2, 0x20
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x18
+
+    const/16 v2, 0x25
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x19
+
+    const/16 v2, 0x72
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x1a
+
+    const/16 v2, 0x7b
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x1b
+
+    const/16 v2, 0x70
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x1c
+
+    const/16 v2, 0x73
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x1d
+
+    const/16 v2, 0x68
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x1e
+
+    const/16 v2, 0x4a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x1f
+
+    const/16 v2, 0x75
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x20
+
+    const/4 v2, 0x5
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x21
+
+    aput-byte v5, v0, v1
+
+    const/16 v1, 0x22
+
+    const/16 v2, 0xe
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x23
+
+    const/4 v2, 0x4
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x24
+
+    const/4 v2, 0x5
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x25
+
+    const/16 v2, 0x55
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x26
+
+    const/16 v2, 0x78
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x27
+
+    const/16 v2, 0x71
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x28
+
+    const/16 v2, 0x77
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x29
+
+    const/16 v2, 0x66
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x2a
+
+    aput-byte v3, v0, v1
+
+    const/16 v1, 0x2b
+
+    aput-byte v6, v0, v1
+
+    const/16 v1, 0x2c
+
+    const/16 v2, 0x20
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x2d
+
+    const/16 v2, 0x20
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x2e
+
+    const/16 v2, 0x31
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x2f
+
+    const/16 v2, 0x57
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x30
+
+    const/16 v2, 0x36
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x31
+
+    const/16 v2, 0x4d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x32
+
+    const/16 v2, 0x55
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x33
+
+    const/16 v2, 0x7d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x34
+
+    const/4 v2, 0x1
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x35
+
+    const/16 v2, 0x31
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x36
+
+    aput-byte v3, v0, v1
+
+    const/16 v1, 0x37
+
+    const/16 v2, 0x3c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x38
+
+    const/16 v2, 0x14
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x39
+
+    aput-byte v4, v0, v1
+
+    const/16 v1, 0x3a
+
+    aput-byte v4, v0, v1
+
+    const/16 v1, 0x3b
+
+    const/16 v2, 0x50
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x3c
+
+    const/16 v2, 0x2a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x3d
+
+    aput-byte v5, v0, v1
+
+    const/16 v1, 0x3e
+
+    const/16 v2, 0x59
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x3f
+
+    const/16 v2, 0x66
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x40
+
+    const/16 v2, 0x6d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x41
+
+    const/4 v2, 0x1
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x42
+
+    const/16 v2, 0x27
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x43
+
+    const/16 v2, 0x1d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x44
+
+    const/16 v2, 0x33
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x45
+
+    const/16 v2, 0x18
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x46
+
+    const/16 v2, 0x25
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x47
+
+    const/16 v2, 0x2e
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x48
+
+    const/16 v2, 0x44
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x49
+
+    aput-byte v7, v0, v1
+
+    const/16 v1, 0x4a
+
+    aput-byte v4, v0, v1
+
+    const/16 v1, 0x4b
+
+    const/16 v2, 0x15
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x4c
+
+    const/16 v2, 0x3e
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x4d
+
+    const/16 v2, 0x49
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x4e
+
+    const/4 v2, 0x7
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x4f
+
+    const/16 v2, 0x40
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x50
+
+    const/16 v2, 0x58
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x51
+
+    const/16 v2, 0x4b
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x52
+
+    const/16 v2, 0x54
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x53
+
+    const/16 v2, 0x6e
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x54
+
+    const/16 v2, 0x22
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x55
+
+    const/4 v2, 0x5
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x57
+
+    const/16 v2, 0x34
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x58
+
+    aput-byte v7, v0, v1
+
+    const/16 v1, 0x59
+
+    const/16 v2, 0x7c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x5a
+
+    const/16 v2, 0x36
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x5b
+
+    const/16 v2, 0x27
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x5c
+
+    const/16 v2, 0x27
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x5d
+
+    const/16 v2, 0x13
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x5e
+
+    const/16 v2, 0x1b
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x5f
+
+    const/16 v2, 0x12
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x60
+
+    const/16 v2, 0x5f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x61
+
+    const/16 v2, 0x50
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x62
+
+    aput-byte v6, v0, v1
+
+    const/16 v1, 0x63
+
+    aput-byte v7, v0, v1
+
+    const/16 v1, 0x64
+
+    const/16 v2, 0x8
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x65
+
+    const/16 v2, 0x10
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x66
+
+    aput-byte v7, v0, v1
+
+    const/16 v1, 0x67
+
+    const/16 v2, 0x4d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x68
+
+    const/16 v2, 0x7c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x69
+
+    const/16 v2, 0x12
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x6a
+
+    aput-byte v5, v0, v1
+
+    const/16 v1, 0x6b
+
+    const/16 v2, 0x18
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x6c
+
+    const/4 v2, 0x6
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x6d
+
+    const/16 v2, 0x3d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x6e
+
+    aput-byte v5, v0, v1
+
+    const/16 v1, 0x6f
+
+    const/16 v2, 0x22
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x70
+
+    const/4 v2, 0x6
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x71
+
+    const/16 v2, 0xa
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x72
+
+    const/4 v2, 0x7
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x73
+
+    const/16 v2, 0x6a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x74
+
+    const/4 v2, 0x7
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x75
+
+    const/16 v2, 0x71
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x76
+
+    const/16 v2, 0x53
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x77
+
+    const/16 v2, 0x2e
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x78
+
+    const/16 v2, 0x24
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x79
+
+    const/16 v2, 0x53
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x7a
+
+    const/16 v2, 0x28
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x7b
+
+    const/16 v2, 0x49
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x7c
+
+    const/16 v2, 0x58
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x7d
+
+    const/16 v2, 0x5b
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x7e
+
+    const/16 v2, 0x5f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x7f
+
+    const/16 v2, 0x51
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x80
+
+    const/16 v2, 0x26
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x81
+
+    const/16 v2, 0x43
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x82
+
+    const/16 v2, 0x3c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x84
+
+    const/16 v2, 0x29
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x85
+
+    const/16 v2, 0x2b
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x86
+
+    const/16 v2, 0x71
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x87
+
+    const/16 v2, 0x67
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x88
+
+    const/16 v2, 0x60
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x89
+
+    const/16 v2, 0x5b
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x8a
+
+    const/16 v2, 0x75
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x8b
+
+    const/16 v2, 0x75
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x8c
+
+    const/16 v2, 0x2c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x8d
+
+    const/16 v2, 0x19
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x8e
+
+    const/4 v2, 0x5
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x8f
+
+    const/16 v2, 0x54
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x90
+
+    const/16 v2, 0xe
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x91
+
+    const/16 v2, 0x52
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x92
+
+    const/16 v2, 0x40
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x93
+
+    const/16 v2, 0x32
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x94
+
+    const/16 v2, 0x19
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x95
+
+    const/4 v2, 0x1
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x96
+
+    const/16 v2, 0x26
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x97
+
+    const/16 v2, 0x25
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x98
+
+    aput-byte v5, v0, v1
+
+    const/16 v1, 0x99
+
+    const/4 v2, 0x7
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x9a
+
+    const/16 v2, 0x30
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x9b
+
+    const/16 v2, 0x32
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x9c
+
+    const/16 v2, 0x29
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x9d
+
+    const/16 v2, 0x30
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x9e
+
+    const/16 v2, 0x34
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x9f
+
+    const/16 v2, 0x38
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xa0
+
+    const/16 v2, 0x43
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xa1
+
+    const/16 v2, 0x5b
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xa2
+
+    const/16 v2, 0x45
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xa3
+
+    const/16 v2, 0x45
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xa4
+
+    const/16 v2, 0x17
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xa5
+
+    const/16 v2, 0x44
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xa7
+
+    const/16 v2, 0x31
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xa8
+
+    aput-byte v5, v0, v1
+
+    const/16 v1, 0xa9
+
+    const/16 v2, 0x15
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xaa
+
+    const/16 v2, 0x1f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xab
+
+    aput-byte v6, v0, v1
+
+    const/16 v1, 0xac
+
+    const/16 v2, 0x2a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xad
+
+    aput-byte v4, v0, v1
+
+    const/16 v1, 0xae
+
+    aput-byte v3, v0, v1
+
+    const/16 v1, 0xaf
+
+    const/16 v2, 0x16
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xb0
+
+    const/16 v2, 0x69
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xb1
+
+    const/16 v2, 0x47
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xb2
+
+    const/4 v2, 0x6
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xb3
+
+    const/16 v2, 0x5d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xb4
+
+    const/16 v2, 0x64
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xb5
+
+    const/16 v2, 0x74
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xb6
+
+    const/16 v2, 0x37
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xb7
+
+    const/16 v2, 0x5f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xb8
+
+    const/4 v2, 0x4
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xb9
+
+    aput-byte v4, v0, v1
+
+    const/16 v1, 0xba
+
+    const/16 v2, 0x26
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xbb
+
+    const/16 v2, 0x2e
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xbc
+
+    const/16 v2, 0x13
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xbd
+
+    const/16 v2, 0x1e
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xbe
+
+    const/4 v2, 0x4
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xbf
+
+    const/16 v2, 0x15
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xc0
+
+    const/16 v2, 0x2d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xc1
+
+    const/16 v2, 0x22
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xc2
+
+    const/16 v2, 0x5d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xc3
+
+    const/16 v2, 0x4b
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xc4
+
+    const/16 v2, 0x20
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xc5
+
+    const/16 v2, 0x1d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xc6
+
+    const/16 v2, 0xd
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xc7
+
+    const/16 v2, 0xc
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xc8
+
+    const/16 v2, 0x24
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xc9
+
+    const/16 v2, 0x56
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xca
+
+    const/16 v2, 0x19
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xcb
+
+    const/16 v2, 0x34
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xcc
+
+    const/16 v2, 0x2f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xcd
+
+    const/16 v2, 0x40
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xce
+
+    const/16 v2, 0x2d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xcf
+
+    const/16 v2, 0x21
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xd0
+
+    const/16 v2, 0x1c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xd1
+
+    const/16 v2, 0x11
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xd2
+
+    const/16 v2, 0x74
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xd3
+
+    const/16 v2, 0x45
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xd4
+
+    const/16 v2, 0x1e
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xd5
+
+    aput-byte v4, v0, v1
+
+    const/16 v1, 0xd6
+
+    const/16 v2, 0x6d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xd7
+
+    const/16 v2, 0x45
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xd8
+
+    const/16 v2, 0x51
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xd9
+
+    const/16 v2, 0x51
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xda
+
+    const/16 v2, 0x25
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xdb
+
+    aput-byte v3, v0, v1
+
+    const/16 v1, 0xdc
+
+    const/16 v2, 0x2f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xdd
+
+    const/16 v2, 0x74
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xde
+
+    const/16 v2, 0x7f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xdf
+
+    const/16 v2, 0xa
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xe0
+
+    const/4 v2, 0x6
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xe1
+
+    const/16 v2, 0x6a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xe2
+
+    aput-byte v4, v0, v1
+
+    const/16 v1, 0xe3
+
+    const/16 v2, 0x64
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xe4
+
+    const/16 v2, 0x30
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xe5
+
+    const/16 v2, 0x7c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xe6
+
+    const/16 v2, 0x28
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xe7
+
+    const/16 v2, 0x15
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xe8
+
+    const/16 v2, 0xd
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xe9
+
+    const/16 v2, 0x7d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xea
+
+    const/16 v2, 0x43
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xeb
+
+    const/16 v2, 0x70
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xec
+
+    const/16 v2, 0x55
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xed
+
+    const/16 v2, 0x5c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xee
+
+    const/16 v2, 0x2c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xef
+
+    const/16 v2, 0xa
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xf0
+
+    const/16 v2, 0x7d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xf1
+
+    aput-byte v6, v0, v1
+
+    const/16 v1, 0xf2
+
+    aput-byte v3, v0, v1
+
+    const/16 v1, 0xf3
+
+    const/16 v2, 0x28
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xf4
+
+    const/16 v2, 0x40
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xf5
+
+    aput-byte v7, v0, v1
+
+    const/16 v1, 0xf6
+
+    const/16 v2, 0x6a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xf7
+
+    const/16 v2, 0x13
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xf8
+
+    const/16 v2, 0x3a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xf9
+
+    const/16 v2, 0x3d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xfa
+
+    const/16 v2, 0x50
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xfb
+
+    const/4 v2, 0x5
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xfc
+
+    aput-byte v3, v0, v1
+
+    const/16 v1, 0xfd
+
+    const/16 v2, 0x2f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xfe
+
+    const/16 v2, 0x55
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0xff
+
+    const/16 v2, 0x2d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x100
+
+    const/16 v2, 0x2c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x101
+
+    const/16 v2, 0x23
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x102
+
+    const/16 v2, 0x45
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x103
+
+    const/16 v2, 0x5c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x104
+
+    const/16 v2, 0x4d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x105
+
+    const/16 v2, 0x5a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x106
+
+    const/16 v2, 0x22
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x107
+
+    const/16 v2, 0x40
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x108
+
+    const/16 v2, 0x36
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x109
+
+    const/16 v2, 0xd
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x10a
+
+    const/16 v2, 0x3b
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x10b
+
+    const/16 v2, 0x54
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x10c
+
+    const/4 v2, 0x7
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x10d
+
+    const/16 v2, 0x21
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x10e
+
+    const/16 v2, 0x5f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x111
+
+    const/16 v2, 0xc
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x112
+
+    const/16 v2, 0x77
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x113
+
+    const/16 v2, 0x75
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x114
+
+    const/16 v2, 0x78
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x115
+
+    const/16 v2, 0x76
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x116
+
+    const/16 v2, 0x58
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x117
+
+    const/16 v2, 0x4f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x118
+
+    const/4 v2, 0x4
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x119
+
+    const/16 v2, 0x21
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x11a
+
+    const/16 v2, 0x25
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x11b
+
+    const/16 v2, 0x2a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x11c
+
+    const/16 v2, 0xa
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x11d
+
+    const/16 v2, 0x1d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x11e
+
+    aput-byte v7, v0, v1
+
+    const/16 v1, 0x11f
+
+    const/16 v2, 0x13
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x120
+
+    const/16 v2, 0x1f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x121
+
+    const/16 v2, 0x29
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x122
+
+    const/16 v2, 0x43
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x123
+
+    const/16 v2, 0x59
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x124
+
+    const/16 v2, 0x57
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x125
+
+    const/16 v2, 0x7a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x126
+
+    const/16 v2, 0x3f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x127
+
+    const/16 v2, 0x1d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x128
+
+    const/16 v2, 0x3d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x129
+
+    const/16 v2, 0x33
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x12a
+
+    const/16 v2, 0x37
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x12b
+
+    const/16 v2, 0x21
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x12c
+
+    const/16 v2, 0x2f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x12d
+
+    const/16 v2, 0x7d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x12e
+
+    const/16 v2, 0x1a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x12f
+
+    const/16 v2, 0x2a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x130
+
+    const/16 v2, 0x2a
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x131
+
+    const/4 v2, 0x4
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x132
+
+    const/16 v2, 0xe
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x133
+
+    const/16 v2, 0x19
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x134
+
+    const/16 v2, 0x33
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x135
+
+    const/16 v2, 0x44
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x136
+
+    const/16 v2, 0x3f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x137
+
+    const/16 v2, 0x5c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x138
+
+    const/16 v2, 0x41
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x139
+
+    const/16 v2, 0x76
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x13a
+
+    const/16 v2, 0x50
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x13b
+
+    const/16 v2, 0x1d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x13c
+
+    const/16 v2, 0x32
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x13d
+
+    const/16 v2, 0x28
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x13e
+
+    const/16 v2, 0x23
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x13f
+
+    const/16 v2, 0x69
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x140
+
+    const/16 v2, 0x67
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x141
+
+    const/16 v2, 0x61
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x142
+
+    const/16 v2, 0x7e
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x143
+
+    const/16 v2, 0x69
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x144
+
+    const/16 v2, 0x37
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x145
+
+    const/16 v2, 0x40
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x146
+
+    const/16 v2, 0x7b
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x147
+
+    const/16 v2, 0x61
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x148
+
+    const/16 v2, 0x12
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x149
+
+    aput-byte v3, v0, v1
+
+    const/16 v1, 0x14a
+
+    const/16 v2, 0x30
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x14c
+
+    const/4 v2, 0x1
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x14d
+
+    aput-byte v5, v0, v1
+
+    const/16 v1, 0x14e
+
+    const/16 v2, 0x5d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x14f
+
+    const/16 v2, 0x44
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x150
+
+    const/16 v2, 0xc
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x151
+
+    const/16 v2, 0xc
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x152
+
+    const/16 v2, 0x1e
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x153
+
+    const/16 v2, 0x21
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x154
+
+    const/16 v2, 0x55
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x155
+
+    const/16 v2, 0x24
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x156
+
+    const/16 v2, 0x30
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x157
+
+    const/4 v2, 0x5
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x158
+
+    const/16 v2, 0x42
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x159
+
+    const/16 v2, 0x29
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x15a
+
+    aput-byte v7, v0, v1
+
+    const/16 v1, 0x15b
+
+    const/16 v2, 0x60
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x15c
+
+    const/16 v2, 0x4d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x15d
+
+    const/16 v2, 0x2b
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x15e
+
+    const/16 v2, 0x51
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x15f
+
+    const/16 v2, 0x2c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x160
+
+    const/16 v2, 0x3c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x161
+
+    const/16 v2, 0x2d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x162
+
+    const/16 v2, 0x5f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x163
+
+    const/16 v2, 0x47
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x164
+
+    const/16 v2, 0x59
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x165
+
+    const/16 v2, 0x7d
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x166
+
+    const/16 v2, 0x52
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x167
+
+    const/16 v2, 0x74
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x168
+
+    aput-byte v3, v0, v1
+
+    const/16 v1, 0x169
+
+    const/16 v2, 0x27
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x16a
+
+    const/4 v2, 0x1
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x16b
+
+    const/16 v2, 0x32
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x16c
+
+    const/16 v2, 0x28
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x16d
+
+    const/16 v2, 0x10
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x16e
+
+    aput-byte v6, v0, v1
+
+    const/16 v1, 0x16f
+
+    const/16 v2, 0x30
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x170
+
+    const/16 v2, 0x3e
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x171
+
+    const/16 v2, 0x23
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x172
+
+    const/16 v2, 0x24
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x173
+
+    const/16 v2, 0x30
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x174
+
+    const/16 v2, 0x5f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x175
+
+    const/16 v2, 0x1f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x176
+
+    const/16 v2, 0x40
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x177
+
+    const/16 v2, 0x5c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x178
+
+    const/16 v2, 0x72
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x179
+
+    const/16 v2, 0x60
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x17a
+
+    const/16 v2, 0x1c
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x17b
+
+    const/16 v2, 0x29
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x17c
+
+    const/16 v2, 0x3f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x17d
+
+    const/16 v2, 0xa
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x17e
+
+    const/16 v2, 0xd
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x17f
+
+    aput-byte v6, v0, v1
+
+    const/16 v1, 0x180
+
+    const/16 v2, 0x75
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x182
+
+    const/16 v2, 0x2f
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x183
+
+    const/16 v2, 0x23
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x184
+
+    const/16 v2, 0x29
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x185
+
+    const/16 v2, 0x39
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x186
+
+    const/16 v2, 0x72
+
+    aput-byte v2, v0, v1
+
+    const/16 v1, 0x187
+
+    const/16 v2, 0x7a
+
+    aput-byte v2, v0, v1
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->google_bytes_value:[B
+
+    .line 187
+    const-string v0, "punchquest"
+
+    const-string v1, "static load libs start"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 189
+    const-string v0, "gnustl_shared"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 190
+    const-string v0, "objc"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 191
+    const-string v0, "foundation"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 192
+    const-string v0, "dispatch"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 193
+    const-string v0, "coregraphics"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 194
+    const-string v0, "quartzcore"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 195
+    const-string v0, "uikit"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 196
+    const-string v0, "cocos2d"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 197
+    const-string v0, "noodle"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 198
+    const-string v0, "storekit"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 199
+    const-string v0, "gameservices"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 200
+    const-string v0, "ogg"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 201
+    const-string v0, "vorbis"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 202
+    const-string v0, "openal"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 203
+    const-string v0, "cocosdenshion_al"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 204
+    const-string v0, "game"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    .line 206
+    const-string v0, "punchquest"
+
+    const-string v1, "static load libs finished"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 207
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 1
+
+    .prologue
+    const/4 v0, 0x1
+
+    .line 65
+    invoke-direct {p0, v0, v0, v0}, Lcom/noodlecake/noodlenews/NoodlecakeGameActivity;-><init>(ZZZ)V
+
+    .line 66
+    invoke-direct {p0}, Lcom/noodlecake/punchquest/punchquest;->setAPIKeys()V
+
+    .line 67
+    return-void
+.end method
+
+.method private setAPIKeys()V
+    .locals 2
+
+    .prologue
+    .line 70
+    const/16 v0, 0x28
+
+    iget v1, p0, Lcom/noodlecake/punchquest/punchquest;->version:I
+
+    if-ne v0, v1, :cond_3
+
+    .line 71
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->TAG:Ljava/lang/String;
+
+    const-string v1, "using free version API keys"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 72
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->flurry_key_free:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->flurry_key:Ljava/lang/String;
+
+    .line 73
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->playhaven_token_free:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->playhaven_token:Ljava/lang/String;
+
+    .line 74
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->playhaven_secret_free:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->playhaven_secret:Ljava/lang/String;
+
+    .line 75
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->crittercism_id_free:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->crittercism_id:Ljava/lang/String;
+
+    .line 76
+    iget v0, p0, Lcom/noodlecake/punchquest/punchquest;->platform:I
+
+    if-nez v0, :cond_2
+
+    .line 77
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->TAG:Ljava/lang/String;
+
+    const-string v1, "using google API keys"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 78
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid_free_google:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid:Ljava/lang/String;
+
+    .line 79
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature_free_google:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature:Ljava/lang/String;
+
+    .line 80
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->vungle_appid_google:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->vungle_appid:Ljava/lang/String;
+
+    .line 106
+    :cond_0
+    :goto_0
+    iget v0, p0, Lcom/noodlecake/punchquest/punchquest;->platform:I
+
+    if-nez v0, :cond_1
+
+    .line 107
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->google_bytes_value:[B
+
+    sput-object v0, Lcom/noodlecake/punchquest/punchquest;->google_bytes:[B
+
+    .line 109
+    :cond_1
+    return-void
+
+    .line 82
+    :cond_2
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->TAG:Ljava/lang/String;
+
+    const-string v1, "using amazon API keys"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 83
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid_free_amazon:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid:Ljava/lang/String;
+
+    .line 84
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature_free_amazon:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature:Ljava/lang/String;
+
+    .line 85
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->vungle_appid_google:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->vungle_appid:Ljava/lang/String;
+
+    goto :goto_0
+
+    .line 87
+    :cond_3
+    const/16 v0, 0x1e
+
+    iget v1, p0, Lcom/noodlecake/punchquest/punchquest;->version:I
+
+    if-ne v0, v1, :cond_0
+
+    .line 88
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->TAG:Ljava/lang/String;
+
+    const-string v1, "using full version API keys"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 89
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->flurry_key_full:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->flurry_key:Ljava/lang/String;
+
+    .line 90
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->playhaven_token_full:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->playhaven_token:Ljava/lang/String;
+
+    .line 91
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->playhaven_secret_full:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->playhaven_secret:Ljava/lang/String;
+
+    .line 92
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->crittercism_id_full:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->crittercism_id:Ljava/lang/String;
+
+    .line 93
+    iget v0, p0, Lcom/noodlecake/punchquest/punchquest;->platform:I
+
+    if-nez v0, :cond_4
+
+    .line 94
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->TAG:Ljava/lang/String;
+
+    const-string v1, "using google API keys"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 95
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid_full_google:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid:Ljava/lang/String;
+
+    .line 96
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature_full_google:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature:Ljava/lang/String;
+
+    .line 97
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->vungle_appid_google:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->vungle_appid:Ljava/lang/String;
+
+    goto :goto_0
+
+    .line 99
+    :cond_4
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->TAG:Ljava/lang/String;
+
+    const-string v1, "using amazon API keys"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 100
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid_full_amazon:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid:Ljava/lang/String;
+
+    .line 101
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature_full_amazon:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature:Ljava/lang/String;
+
+    .line 102
+    sget-object v0, Lcom/noodlecake/punchquest/punchquest;->vungle_appid_google:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->vungle_appid:Ljava/lang/String;
+
+    goto :goto_0
+.end method
+
+.method private trySetImmersive()V
+    .locals 3
+
+    .prologue
+    .line 133
+    const v1, 0x7f060001
+
+    invoke-virtual {p0, v1}, Lcom/noodlecake/punchquest/punchquest;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Lorg/cocos2dx/lib/Cocos2dxGLSurfaceView;
+
+    iput-object v1, p0, Lcom/noodlecake/punchquest/punchquest;->mGLView:Lorg/cocos2dx/lib/Cocos2dxGLSurfaceView;
+
+    .line 135
+    const/4 v0, 0x0
+
+    .line 136
+    .local v0, "visibilityFlags":I
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v2, 0x13
+
+    if-lt v1, v2, :cond_1
+
+    .line 137
+    or-int/lit16 v0, v0, 0x100
+
+    .line 138
+    or-int/lit16 v0, v0, 0x200
+
+    .line 139
+    or-int/lit16 v0, v0, 0x400
+
+    .line 140
+    or-int/lit8 v0, v0, 0x4
+
+    .line 141
+    or-int/lit8 v0, v0, 0x2
+
+    .line 142
+    or-int/lit16 v0, v0, 0x1000
+
+    .line 143
+    iget-object v1, p0, Lcom/noodlecake/punchquest/punchquest;->mGLView:Lorg/cocos2dx/lib/Cocos2dxGLSurfaceView;
+
+    invoke-virtual {v1, v0}, Lorg/cocos2dx/lib/Cocos2dxGLSurfaceView;->setSystemUiVisibility(I)V
+
+    .line 156
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 145
+    :cond_1
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v2, 0xe
+
+    if-lt v1, v2, :cond_2
+
+    .line 146
+    or-int/lit8 v0, v0, 0x1
+
+    .line 147
+    iget-object v1, p0, Lcom/noodlecake/punchquest/punchquest;->mGLView:Lorg/cocos2dx/lib/Cocos2dxGLSurfaceView;
+
+    invoke-virtual {v1, v0}, Lorg/cocos2dx/lib/Cocos2dxGLSurfaceView;->setSystemUiVisibility(I)V
+
+    goto :goto_0
+
+    .line 149
+    :cond_2
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v2, 0xb
+
+    if-lt v1, v2, :cond_0
+
+    .line 151
+    or-int/lit8 v0, v0, 0x1
+
+    .line 152
+    iget-object v1, p0, Lcom/noodlecake/punchquest/punchquest;->mGLView:Lorg/cocos2dx/lib/Cocos2dxGLSurfaceView;
+
+    invoke-virtual {v1, v0}, Lorg/cocos2dx/lib/Cocos2dxGLSurfaceView;->setSystemUiVisibility(I)V
+
+    goto :goto_0
+.end method
+
+
+# virtual methods
+.method public onBackPressed()V
+    .locals 1
+
+    .prologue
+    .line 180
+    invoke-static {}, Lcom/noodlecake/ads/InterstitialController;->onBackPressed()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 184
+    :goto_0
+    return-void
+
+    .line 183
+    :cond_0
+    invoke-super {p0}, Lcom/noodlecake/noodlenews/NoodlecakeGameActivity;->onBackPressed()V
+
+    goto :goto_0
+.end method
+
+.method protected onCreate(Landroid/os/Bundle;)V
+    .locals 6
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
+
+    .prologue
+    .line 159
+    const/high16 v0, 0x7f030000
+
+    const v1, 0x7f060001
+
+    const/high16 v2, 0x7f060000
+
+    invoke-super {p0, p1, v0, v1, v2}, Lcom/noodlecake/noodlenews/NoodlecakeGameActivity;->onCreate(Landroid/os/Bundle;III)V
+
+    # ====== 鐮磋В娉ㄥ叆锛氬啓鍏?IAP 璐拱鏍囪 ======
+    # 鍙仛 SharedPreferences 鏍囪锛屼笉璋冪敤 native handleMessage锛堜細闂€€锛?
+    # 鐪熸鐨勯噾甯佸彂鏀炬敼涓哄湪璐拱鍥炶皟涓嫤鎴?
+    invoke-virtual {p0}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    invoke-virtual {p0, v3, v4}, Landroid/app/Activity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v4
+
+    const-string v5, "noodle_has_purchased"
+
+    const/4 v0, 0x1
+
+    invoke-interface {v4, v5, v0}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+
+    invoke-interface {v4}, Landroid/content/SharedPreferences$Editor;->commit()Z
+
+    # ====== 鐮磋В娉ㄥ叆缁撴潫 ======
+
+    .line 161
+    iget-object v1, p0, Lcom/noodlecake/punchquest/punchquest;->playhaven_token:Ljava/lang/String;
+
+    iget-object v2, p0, Lcom/noodlecake/punchquest/punchquest;->playhaven_secret:Ljava/lang/String;
+
+    iget-object v3, p0, Lcom/noodlecake/punchquest/punchquest;->chartboost_appid:Ljava/lang/String;
+
+    iget-object v4, p0, Lcom/noodlecake/punchquest/punchquest;->chartboost_signature:Ljava/lang/String;
+
+    const/4 v5, 0x0
+
+    move-object v0, p0
+
+    invoke-static/range {v0 .. v5}, Lcom/noodlecake/ads/InterstitialController;->init(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 162
+    invoke-static {}, Lcom/noodlecake/ads/InterstitialController;->onCreate()V
+
+    .line 163
+    const/4 v0, 0x1
+
+    invoke-static {v0}, Lcom/noodlecake/ads/InterstitialController;->setMinimumIntervalInMinutes(I)V
+
+    .line 165
+    iget-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->vungle_appid:Ljava/lang/String;
+
+    invoke-static {v0, p0}, Lcom/noodlecake/ads/VungleIncentivized;->init(Ljava/lang/String;Landroid/app/Activity;)V
+
+    .line 167
+    new-instance v0, Lcom/noodlecake/noodlenews/NoodleGameServices;
+
+    invoke-direct {v0, p0}, Lcom/noodlecake/noodlenews/NoodleGameServices;-><init>(Landroid/app/Activity;)V
+
+    .line 168
+    invoke-static {}, Lcom/noodlecake/noodlenews/NoodleGameServices;->setPopUpLocation()V
+
+    .line 169
+    return-void
+.end method
+
+.method public onDestroy()V
+    .locals 0
+
+    .prologue
+    .line 172
+    invoke-static {}, Lcom/noodlecake/ads/InterstitialController;->onDestroy()V
+
+    .line 173
+    invoke-super {p0}, Lcom/noodlecake/noodlenews/NoodlecakeGameActivity;->onDestroy()V
+
+    .line 174
+    return-void
+.end method
+
+.method public onStart()V
+    .locals 2
+
+    .prologue
+    .line 112
+    invoke-super {p0}, Lcom/noodlecake/noodlenews/NoodlecakeGameActivity;->onStart()V
+
+    .line 114
+    const-wide/16 v0, 0x7530
+
+    invoke-static {v0, v1}, Lcom/flurry/android/FlurryAgent;->setContinueSessionMillis(J)V
+
+    .line 115
+    iget-object v0, p0, Lcom/noodlecake/punchquest/punchquest;->flurry_key:Ljava/lang/String;
+
+    invoke-static {p0, v0}, Lcom/flurry/android/FlurryAgent;->onStartSession(Landroid/content/Context;Ljava/lang/String;)V
+
+    .line 117
+    invoke-static {}, Lcom/noodlecake/ads/InterstitialController;->onStart()V
+
+    .line 118
+    return-void
+.end method
+
+.method public onStop()V
+    .locals 0
+
+    .prologue
+    .line 121
+    invoke-super {p0}, Lcom/noodlecake/noodlenews/NoodlecakeGameActivity;->onStop()V
+
+    .line 122
+    invoke-static {p0}, Lcom/flurry/android/FlurryAgent;->onEndSession(Landroid/content/Context;)V
+
+    .line 123
+    invoke-static {}, Lcom/noodlecake/ads/InterstitialController;->onStop()V
+
+    .line 124
+    return-void
+.end method
+
+.method public onWindowFocusChanged(Z)V
+    .locals 0
+    .param p1, "hasFocus"    # Z
+
+    .prologue
+    .line 127
+    invoke-super {p0, p1}, Lcom/noodlecake/noodlenews/NoodlecakeGameActivity;->onWindowFocusChanged(Z)V
+
+    .line 128
+    invoke-direct {p0}, Lcom/noodlecake/punchquest/punchquest;->trySetImmersive()V
+
+    .line 129
+    return-void
+.end method
+

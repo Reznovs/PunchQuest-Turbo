@@ -1,0 +1,282 @@
+﻿--- ORIGINAL: smali\com\noodlecake\iapv3\PurchaseWrapperV3$SkuSaveOnIabPurchaseFinishedListener.smali
+
+.class Lcom/noodlecake/iapv3/PurchaseWrapperV3$SkuSaveOnIabPurchaseFinishedListener;
+.super Ljava/lang/Object;
+.source "PurchaseWrapperV3.java"
+
+# interfaces
+.implements Lcom/noodlecake/iapv3/IabHelper$OnIabPurchaseFinishedListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/noodlecake/iapv3/PurchaseWrapperV3;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x8
+    name = "SkuSaveOnIabPurchaseFinishedListener"
+.end annotation
+
+
+# instance fields
+.field private sku:Ljava/lang/String;
+
+
+# direct methods
+.method public constructor <init>(Ljava/lang/String;)V
+    .locals 1
+    .param p1, "sku"    # Ljava/lang/String;
+
+    .prologue
+    .line 122
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 120
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/noodlecake/iapv3/PurchaseWrapperV3$SkuSaveOnIabPurchaseFinishedListener;->sku:Ljava/lang/String;
+
+    .line 123
+    iput-object p1, p0, Lcom/noodlecake/iapv3/PurchaseWrapperV3$SkuSaveOnIabPurchaseFinishedListener;->sku:Ljava/lang/String;
+
+    .line 124
+    return-void
+.end method
+
+
+# virtual methods
+.method public onIabPurchaseFinished(Lcom/noodlecake/iapv3/IabResult;Lcom/noodlecake/iapv3/Purchase;)V
+    .locals 3
+    .param p1, "result"    # Lcom/noodlecake/iapv3/IabResult;
+    .param p2, "purchase"    # Lcom/noodlecake/iapv3/Purchase;
+
+    .prologue
+    .line 127
+    invoke-static {}, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->access$0()Ljava/lang/String;
+
+    move-result-object v0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    const-string v2, "Purchase finished: "
+
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ", purchase: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 130
+    invoke-static {}, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->access$1()Lcom/noodlecake/iapv3/IabHelper;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    .line 150
+    :goto_0
+    return-void
+
+    .line 132
+    :cond_0
+    invoke-virtual {p1}, Lcom/noodlecake/iapv3/IabResult;->isFailure()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 133
+    invoke-static {}, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->access$0()Ljava/lang/String;
+
+    move-result-object v0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    const-string v2, "Error purchasing: "
+
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 134
+    invoke-virtual {p1}, Lcom/noodlecake/iapv3/IabResult;->getResponse()I
+
+    move-result v0
+
+    const/4 v1, 0x7
+
+    if-ne v0, v1, :cond_1
+
+    .line 135
+    invoke-static {}, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->access$7()Landroid/app/Activity;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/noodlecake/iapv3/PurchaseWrapperV3$SkuSaveOnIabPurchaseFinishedListener$1;
+
+    invoke-direct {v1, p0}, Lcom/noodlecake/iapv3/PurchaseWrapperV3$SkuSaveOnIabPurchaseFinishedListener$1;-><init>(Lcom/noodlecake/iapv3/PurchaseWrapperV3$SkuSaveOnIabPurchaseFinishedListener;)V
+
+    invoke-virtual {v0, v1}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
+
+    .line 142
+    :cond_1
+    iget-object v0, p0, Lcom/noodlecake/iapv3/PurchaseWrapperV3$SkuSaveOnIabPurchaseFinishedListener;->sku:Ljava/lang/String;
+
+    sget-object v1, Lcom/noodlecake/iap/NoodlePurchaseState;->CANCELLED:Lcom/noodlecake/iap/NoodlePurchaseState;
+
+    invoke-virtual {v1}, Lcom/noodlecake/iap/NoodlePurchaseState;->ordinal()I
+
+    move-result v1
+
+    invoke-static {v0, v1}, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->access$8(Ljava/lang/String;I)V
+
+    goto :goto_0
+
+    .line 145
+    :cond_2
+    invoke-static {}, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->access$0()Ljava/lang/String;
+
+    move-result-object v0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    const-string v2, "Purchase successful. "
+
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Lcom/noodlecake/iapv3/Purchase;->getSku()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 147
+    invoke-static {}, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->access$9()V
+
+    .line 148
+    invoke-static {}, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->access$2()Lcom/noodlecake/iapv3/Inventory;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Lcom/noodlecake/iapv3/Inventory;->addPurchase(Lcom/noodlecake/iapv3/Purchase;)V
+
+    .line 149
+    invoke-virtual {p2}, Lcom/noodlecake/iapv3/Purchase;->getSku()Ljava/lang/String;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/noodlecake/iap/NoodlePurchaseState;->SUCCESS:Lcom/noodlecake/iap/NoodlePurchaseState;
+
+    invoke-virtual {v1}, Lcom/noodlecake/iap/NoodlePurchaseState;->ordinal()I
+
+    move-result v1
+
+    invoke-static {v0, v1}, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->access$8(Ljava/lang/String;I)V
+
+    goto :goto_0
+.end method
+
+
++++ MODIFIED: smali\com\noodlecake\iapv3\PurchaseWrapperV3$SkuSaveOnIabPurchaseFinishedListener.smali
+
+.class Lcom/noodlecake/iapv3/PurchaseWrapperV3$SkuSaveOnIabPurchaseFinishedListener;
+.super Ljava/lang/Object;
+.source "PurchaseWrapperV3.java"
+
+# interfaces
+.implements Lcom/noodlecake/iapv3/IabHelper$OnIabPurchaseFinishedListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/noodlecake/iapv3/PurchaseWrapperV3;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x8
+    name = "SkuSaveOnIabPurchaseFinishedListener"
+.end annotation
+
+
+# instance fields
+.field private sku:Ljava/lang/String;
+
+
+# direct methods
+.method public constructor <init>(Ljava/lang/String;)V
+    .locals 1
+    .param p1, "sku"    # Ljava/lang/String;
+
+    .prologue
+    .line 122
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 120
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/noodlecake/iapv3/PurchaseWrapperV3$SkuSaveOnIabPurchaseFinishedListener;->sku:Ljava/lang/String;
+
+    .line 123
+    iput-object p1, p0, Lcom/noodlecake/iapv3/PurchaseWrapperV3$SkuSaveOnIabPurchaseFinishedListener;->sku:Ljava/lang/String;
+
+    .line 124
+    return-void
+.end method
+
+
+# virtual methods
+.method public onIabPurchaseFinished(Lcom/noodlecake/iapv3/IabResult;Lcom/noodlecake/iapv3/Purchase;)V
+    .locals 3
+    .param p1, "result"    # Lcom/noodlecake/iapv3/IabResult;
+    .param p2, "purchase"    # Lcom/noodlecake/iapv3/Purchase;
+
+    .prologue
+    # ====== 鐮磋В锛氳喘涔板洖璋冪洿鎺ヨ蛋鎴愬姛璺緞 ======
+    # 鏃犺瀹為檯璐拱鏄惁鎴愬姛锛岄兘璧?SUCCESS 鍒嗘敮
+    # 淇濆瓨璐拱鏍囪
+    invoke-static {}, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->access$9()V
+
+    # 閫氱煡 native 灞傝喘涔版垚鍔燂細handleMessage(sku, SUCCESS.ordinal=0)
+    iget-object v0, p0, Lcom/noodlecake/iapv3/PurchaseWrapperV3$SkuSaveOnIabPurchaseFinishedListener;->sku:Ljava/lang/String;
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->access$8(Ljava/lang/String;I)V
+
+    return-void
+    # ====== 鐮磋В缁撴潫 ======
+.end method
+

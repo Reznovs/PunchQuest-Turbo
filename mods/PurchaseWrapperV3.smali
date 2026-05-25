@@ -1,0 +1,928 @@
+.class public Lcom/noodlecake/iapv3/PurchaseWrapperV3;
+.super Ljava/lang/Object;
+.source "PurchaseWrapperV3.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/noodlecake/iapv3/PurchaseWrapperV3$SkuSaveOnIabPurchaseFinishedListener;
+    }
+.end annotation
+
+
+# static fields
+.field private static synthetic $SWITCH_TABLE$net$robotmedia$billing$model$Transaction$PurchaseState:[I = null
+
+.field private static final PREF_KEY:Ljava/lang/String; = "noodle_has_purchased"
+
+.field private static final RC_REQUEST:I = 0x138d5
+
+.field private static TAG:Ljava/lang/String;
+
+.field private static callNativeWithInventory:Z
+
+.field private static ctx:Landroid/app/Activity;
+
+.field private static inventory:Lcom/noodlecake/iapv3/Inventory;
+
+.field private static mConsumeFinishedListener:Lcom/noodlecake/iapv3/IabHelper$OnConsumeFinishedListener;
+
+.field private static mGotInventoryListener:Lcom/noodlecake/iapv3/IabHelper$QueryInventoryFinishedListener;
+
+.field private static mHelper:Lcom/noodlecake/iapv3/IabHelper;
+
+
+# direct methods
+.method static synthetic $SWITCH_TABLE$net$robotmedia$billing$model$Transaction$PurchaseState()[I
+    .locals 3
+
+    .prologue
+    .line 18
+    sget-object v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->$SWITCH_TABLE$net$robotmedia$billing$model$Transaction$PurchaseState:[I
+
+    if-eqz v0, :cond_0
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    invoke-static {}, Lnet/robotmedia/billing/model/Transaction$PurchaseState;->values()[Lnet/robotmedia/billing/model/Transaction$PurchaseState;
+
+    move-result-object v0
+
+    array-length v0, v0
+
+    new-array v0, v0, [I
+
+    :try_start_0
+    sget-object v1, Lnet/robotmedia/billing/model/Transaction$PurchaseState;->CANCELLED:Lnet/robotmedia/billing/model/Transaction$PurchaseState;
+
+    invoke-virtual {v1}, Lnet/robotmedia/billing/model/Transaction$PurchaseState;->ordinal()I
+
+    move-result v1
+
+    const/4 v2, 0x2
+
+    aput v2, v0, v1
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_2
+
+    :goto_1
+    :try_start_1
+    sget-object v1, Lnet/robotmedia/billing/model/Transaction$PurchaseState;->PURCHASED:Lnet/robotmedia/billing/model/Transaction$PurchaseState;
+
+    invoke-virtual {v1}, Lnet/robotmedia/billing/model/Transaction$PurchaseState;->ordinal()I
+
+    move-result v1
+
+    const/4 v2, 0x1
+
+    aput v2, v0, v1
+    :try_end_1
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1
+
+    :goto_2
+    :try_start_2
+    sget-object v1, Lnet/robotmedia/billing/model/Transaction$PurchaseState;->REFUNDED:Lnet/robotmedia/billing/model/Transaction$PurchaseState;
+
+    invoke-virtual {v1}, Lnet/robotmedia/billing/model/Transaction$PurchaseState;->ordinal()I
+
+    move-result v1
+
+    const/4 v2, 0x3
+
+    aput v2, v0, v1
+    :try_end_2
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_0
+
+    :goto_3
+    sput-object v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->$SWITCH_TABLE$net$robotmedia$billing$model$Transaction$PurchaseState:[I
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v1
+
+    goto :goto_3
+
+    :catch_1
+    move-exception v1
+
+    goto :goto_2
+
+    :catch_2
+    move-exception v1
+
+    goto :goto_1
+.end method
+
+.method static constructor <clinit>()V
+    .locals 2
+
+    .prologue
+    const/4 v1, 0x0
+
+    .line 19
+    const-string v0, "PurchaseWrapperV3"
+
+    sput-object v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->TAG:Ljava/lang/String;
+
+    .line 23
+    sput-object v1, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->inventory:Lcom/noodlecake/iapv3/Inventory;
+
+    .line 24
+    const/4 v0, 0x0
+
+    sput-boolean v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->callNativeWithInventory:Z
+
+    .line 26
+    sput-object v1, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->ctx:Landroid/app/Activity;
+
+    .line 76
+    new-instance v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3$1;
+
+    invoke-direct {v0}, Lcom/noodlecake/iapv3/PurchaseWrapperV3$1;-><init>()V
+
+    sput-object v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->mGotInventoryListener:Lcom/noodlecake/iapv3/IabHelper$QueryInventoryFinishedListener;
+
+    .line 198
+    new-instance v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3$2;
+
+    invoke-direct {v0}, Lcom/noodlecake/iapv3/PurchaseWrapperV3$2;-><init>()V
+
+    sput-object v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->mConsumeFinishedListener:Lcom/noodlecake/iapv3/IabHelper$OnConsumeFinishedListener;
+
+    .line 214
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 0
+
+    .prologue
+    .line 18
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method static synthetic access$0()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 19
+    sget-object v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->TAG:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1()Lcom/noodlecake/iapv3/IabHelper;
+    .locals 1
+
+    .prologue
+    .line 27
+    sget-object v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->mHelper:Lcom/noodlecake/iapv3/IabHelper;
+
+    return-object v0
+.end method
+
+.method static synthetic access$10()Lcom/noodlecake/iapv3/IabHelper$QueryInventoryFinishedListener;
+    .locals 1
+
+    .prologue
+    .line 76
+    sget-object v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->mGotInventoryListener:Lcom/noodlecake/iapv3/IabHelper$QueryInventoryFinishedListener;
+
+    return-object v0
+.end method
+
+.method static synthetic access$11()Lcom/noodlecake/iapv3/IabHelper$OnConsumeFinishedListener;
+    .locals 1
+
+    .prologue
+    .line 198
+    sget-object v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->mConsumeFinishedListener:Lcom/noodlecake/iapv3/IabHelper$OnConsumeFinishedListener;
+
+    return-object v0
+.end method
+
+.method static synthetic access$2()Lcom/noodlecake/iapv3/Inventory;
+    .locals 1
+
+    .prologue
+    .line 23
+    sget-object v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->inventory:Lcom/noodlecake/iapv3/Inventory;
+
+    return-object v0
+.end method
+
+.method static synthetic access$3(Lcom/noodlecake/iapv3/Inventory;)V
+    .locals 0
+
+    .prologue
+    .line 23
+    sput-object p0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->inventory:Lcom/noodlecake/iapv3/Inventory;
+
+    return-void
+.end method
+
+.method static synthetic access$4()Z
+    .locals 1
+
+    .prologue
+    .line 24
+    sget-boolean v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->callNativeWithInventory:Z
+
+    return v0
+.end method
+
+.method static synthetic access$5()V
+    .locals 0
+
+    .prologue
+    .line 232
+    invoke-static {}, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->processInventory()V
+
+    return-void
+.end method
+
+.method static synthetic access$6(Z)V
+    .locals 0
+
+    .prologue
+    .line 24
+    sput-boolean p0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->callNativeWithInventory:Z
+
+    return-void
+.end method
+
+.method static synthetic access$7()Landroid/app/Activity;
+    .locals 1
+
+    .prologue
+    .line 26
+    sget-object v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->ctx:Landroid/app/Activity;
+
+    return-object v0
+.end method
+
+.method static synthetic access$8(Ljava/lang/String;I)V
+    .locals 0
+
+    .prologue
+    .line 283
+    invoke-static {p0, p1}, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->handleMessage(Ljava/lang/String;I)V
+
+    return-void
+.end method
+
+.method static synthetic access$9()V
+    .locals 0
+
+    .prologue
+    .line 153
+    invoke-static {}, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->savePurchaseFlag()V
+
+    return-void
+.end method
+
+.method public static buyItem(Ljava/lang/String;)Z
+    .locals 2
+    .param p0, "sku"    # Ljava/lang/String;
+
+    .prologue
+    # ====== 破解：跳过 Google Play 支付，直接模拟购买成功 ======
+    # 原代码调用 launchPurchaseFlow 打开支付界面，转半天还可能失败
+    # 修改：直接调用 savePurchaseFlag + handleMessage(sku, SUCCESS)
+    # 这样点击购买后立即到账，无支付弹窗
+
+    # 1. 保存购买标记到 SharedPreferences
+    invoke-static {}, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->savePurchaseFlag()V
+
+    # 2. 通知 native 层购买成功（NoodlePurchaseState.SUCCESS.ordinal() = 0）
+    const/4 v0, 0x0
+
+    invoke-static {p0, v0}, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->handleMessage(Ljava/lang/String;I)V
+
+    # 3. 返回 true（购买成功）
+    const/4 v0, 0x1
+
+    return v0
+    # ====== 破解结束 ======
+.end method
+
+.method public static consumeTransaction(Ljava/lang/String;)V
+    .locals 4
+    .param p0, "sku"    # Ljava/lang/String;
+
+    .prologue
+    .line 180
+    sget-object v1, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->inventory:Lcom/noodlecake/iapv3/Inventory;
+
+    if-nez v1, :cond_0
+
+    .line 181
+    sget-object v1, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->TAG:Ljava/lang/String;
+
+    const-string v2, "Tried to consume when no inventory."
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 195
+    :goto_0
+    return-void
+
+    .line 184
+    :cond_0
+    sget-object v1, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->inventory:Lcom/noodlecake/iapv3/Inventory;
+
+    invoke-virtual {v1, p0}, Lcom/noodlecake/iapv3/Inventory;->getPurchase(Ljava/lang/String;)Lcom/noodlecake/iapv3/Purchase;
+
+    move-result-object v0
+
+    .line 185
+    .local v0, "purchase":Lcom/noodlecake/iapv3/Purchase;
+    if-nez v0, :cond_1
+
+    .line 186
+    sget-object v1, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    const-string v3, "Tried to consume purchase that wasn\'t in inventory:"
+
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    .line 190
+    :cond_1
+    sget-object v1, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->ctx:Landroid/app/Activity;
+
+    new-instance v2, Lcom/noodlecake/iapv3/PurchaseWrapperV3$4;
+
+    invoke-direct {v2, v0}, Lcom/noodlecake/iapv3/PurchaseWrapperV3$4;-><init>(Lcom/noodlecake/iapv3/Purchase;)V
+
+    invoke-virtual {v1, v2}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
+
+    goto :goto_0
+.end method
+
+.method public static finishTransaction(Ljava/lang/String;)V
+    .locals 0
+    .param p0, "sku"    # Ljava/lang/String;
+
+    .prologue
+    .line 162
+    return-void
+.end method
+
+.method public static getItemPrice(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+    .param p0, "sku"    # Ljava/lang/String;
+
+    .prologue
+    .line 166
+    sget-object v1, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->inventory:Lcom/noodlecake/iapv3/Inventory;
+
+    invoke-virtual {v1, p0}, Lcom/noodlecake/iapv3/Inventory;->getSkuDetails(Ljava/lang/String;)Lcom/noodlecake/iapv3/SkuDetails;
+
+    move-result-object v0
+
+    .line 167
+    .local v0, "details":Lcom/noodlecake/iapv3/SkuDetails;
+    if-eqz v0, :cond_0
+
+    .line 168
+    invoke-virtual {v0}, Lcom/noodlecake/iapv3/SkuDetails;->getPrice()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 170
+    :goto_0
+    return-object v1
+
+    :cond_0
+    const-string v1, ""
+
+    goto :goto_0
+.end method
+
+.method public static handleActivityResult(IILandroid/content/Intent;)V
+    .locals 3
+    .param p0, "requestCode"    # I
+    .param p1, "resultCode"    # I
+    .param p2, "data"    # Landroid/content/Intent;
+
+    .prologue
+    .line 100
+    sget-object v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    const-string v2, "onActivityResult("
+
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ","
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ","
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ")"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 101
+    sget-object v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->mHelper:Lcom/noodlecake/iapv3/IabHelper;
+
+    if-nez v0, :cond_0
+
+    .line 110
+    :goto_0
+    return-void
+
+    .line 104
+    :cond_0
+    sget-object v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->mHelper:Lcom/noodlecake/iapv3/IabHelper;
+
+    invoke-virtual {v0, p0, p1, p2}, Lcom/noodlecake/iapv3/IabHelper;->handleActivityResult(IILandroid/content/Intent;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 105
+    sget-object v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->TAG:Ljava/lang/String;
+
+    const-string v1, "onActivityResult handled by IABUtil."
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    .line 108
+    :cond_1
+    sget-object v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->TAG:Ljava/lang/String;
+
+    const-string v1, "onActivityResult NOT handled by IABUtil."
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
+.method public static handleAllMessages()V
+    .locals 0
+
+    .prologue
+    .line 176
+    return-void
+.end method
+
+.method public static native handleMessage(Ljava/lang/String;I)V
+.end method
+
+.method public static hasEverPurchased()Z
+    .locals 2
+
+    .prologue
+    # 破解：始终返回 true，表示曾经购买过
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public static hasPendingPurchase()Z
+    .locals 1
+
+    .prologue
+    .line 243
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public static hasPurchased(Ljava/lang/String;)Z
+    .locals 1
+    .param p0, "sku"    # Ljava/lang/String;
+
+    .prologue
+    # 破解：所有 IAP 商品均视为已购买
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public static init(Landroid/app/Activity;)V
+    .locals 8
+    .param p0, "ctx"    # Landroid/app/Activity;
+
+    .prologue
+    .line 30
+    sput-object p0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->ctx:Landroid/app/Activity;
+
+    .line 31
+    invoke-static {}, Lcom/noodlecake/iap/RandomByteProvider;->getRandomBytes()[B
+
+    move-result-object v1
+
+    .line 32
+    .local v1, "SOME_RANDOM_BYTES":[B
+    const/16 v6, 0x62
+
+    new-array v0, v6, [B
+
+    fill-array-data v0, :array_0
+
+    .line 33
+    .local v0, "SOME_OTHER_BYTES":[B
+    new-instance v2, Ljava/lang/StringBuffer;
+
+    array-length v6, v1
+
+    invoke-direct {v2, v6}, Ljava/lang/StringBuffer;-><init>(I)V
+
+    .line 35
+    .local v2, "b":Ljava/lang/StringBuffer;
+    const/4 v5, 0x0
+
+    .local v5, "i":I
+    :goto_0
+    array-length v6, v1
+
+    if-lt v5, v6, :cond_0
+
+    .line 40
+    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    .line 41
+    .local v3, "base64EncodedPublicKey":Ljava/lang/String;
+    sget-object v6, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->TAG:Ljava/lang/String;
+
+    const-string v7, "Creating IAB helper."
+
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 42
+    new-instance v6, Lcom/noodlecake/iapv3/IabHelper;
+
+    invoke-direct {v6, p0, v3}, Lcom/noodlecake/iapv3/IabHelper;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+
+    sput-object v6, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->mHelper:Lcom/noodlecake/iapv3/IabHelper;
+
+    .line 45
+    sget-object v6, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->mHelper:Lcom/noodlecake/iapv3/IabHelper;
+
+    const/4 v7, 0x1
+
+    invoke-virtual {v6, v7}, Lcom/noodlecake/iapv3/IabHelper;->enableDebugLogging(Z)V
+
+    .line 49
+    sget-object v6, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->TAG:Ljava/lang/String;
+
+    const-string v7, "Starting setup."
+
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 50
+    sget-object v6, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->mHelper:Lcom/noodlecake/iapv3/IabHelper;
+
+    new-instance v7, Lcom/noodlecake/iapv3/PurchaseWrapperV3$3;
+
+    invoke-direct {v7}, Lcom/noodlecake/iapv3/PurchaseWrapperV3$3;-><init>()V
+
+    invoke-virtual {v6, v7}, Lcom/noodlecake/iapv3/IabHelper;->startSetup(Lcom/noodlecake/iapv3/IabHelper$OnIabSetupFinishedListener;)V
+
+    .line 67
+    return-void
+
+    .line 36
+    .end local v3    # "base64EncodedPublicKey":Ljava/lang/String;
+    :cond_0
+    array-length v6, v0
+
+    rem-int v6, v5, v6
+
+    aget-byte v4, v0, v6
+
+    .line 37
+    .local v4, "c":I
+    aget-byte v6, v1, v5
+
+    xor-int/2addr v6, v4
+
+    int-to-char v6, v6
+
+    invoke-virtual {v2, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+
+    .line 35
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_0
+
+    .line 32
+    :array_0
+    .array-data 1
+        0x66t
+        0x6at
+        0x6bt
+        0x64t
+        0x73t
+        0x66t
+        0x48t
+        0x44t
+        0x6at
+        0x6bt
+        0x64t
+        0x47t
+        0x57t
+        0x48t
+        0x47t
+        0x73t
+        0x6ct
+        0x33t
+        0x34t
+        0x33t
+        0x34t
+        0x64t
+        0x73t
+        0x66t
+        0x64t
+        0x33t
+        0x34t
+        0x33t
+        0x32t
+        0x39t
+        0x72t
+        0x34t
+        0x48t
+        0x4at
+        0x47t
+        0x46t
+        0x46t
+        0x32t
+        0x33t
+        0x32t
+        0x36t
+        0x37t
+        0x4at
+        0x48t
+        0x4at
+        0x64t
+        0x64t
+        0x66t
+        0x73t
+        0x66t
+        0x32t
+        0x44t
+        0x51t
+        0x52t
+        0x66t
+        0x73t
+        0x64t
+        0x6at
+        0x66t
+        0x67t
+        0x67t
+        0x68t
+        0x31t
+        0x32t
+        0x34t
+        0x37t
+        0x64t
+        0x73t
+        0x66t
+        0x68t
+        0x6at
+        0x64t
+        0x6bt
+        0x67t
+        0x6bt
+        0x6ct
+        0x68t
+        0x66t
+        0x33t
+        0x34t
+        0x37t
+        0x38t
+        0x36t
+        0x37t
+        0x65t
+        0x66t
+        0x4at
+        0x46t
+        0x47t
+        0x44t
+        0x46t
+        0x77t
+        0x66t
+        0x67t
+        0x68t
+        0x68t
+        0x33t
+        0x38t
+    .end array-data
+.end method
+
+.method public static isBillingSupported()Z
+    .locals 1
+
+    .prologue
+    .line 218
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public static onDestroy()V
+    .locals 1
+
+    .prologue
+    .line 71
+    sget-object v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->mHelper:Lcom/noodlecake/iapv3/IabHelper;
+
+    invoke-virtual {v0}, Lcom/noodlecake/iapv3/IabHelper;->dispose()V
+
+    .line 72
+    const/4 v0, 0x0
+
+    sput-object v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->mHelper:Lcom/noodlecake/iapv3/IabHelper;
+
+    .line 73
+    return-void
+.end method
+
+.method private static processInventory()V
+    .locals 5
+
+    .prologue
+    .line 233
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    .line 234
+    .local v0, "copy":Ljava/util/List;, "Ljava/util/List<Lcom/noodlecake/iapv3/Purchase;>;"
+    sget-object v2, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->inventory:Lcom/noodlecake/iapv3/Inventory;
+
+    invoke-virtual {v2}, Lcom/noodlecake/iapv3/Inventory;->getAllPurchases()Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-interface {v0, v2}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+
+    .line 235
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    .line 239
+    return-void
+
+    .line 235
+    :cond_0
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/noodlecake/iapv3/Purchase;
+
+    .line 236
+    .local v1, "purchase":Lcom/noodlecake/iapv3/Purchase;
+    invoke-static {}, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->savePurchaseFlag()V
+
+    .line 237
+    invoke-virtual {v1}, Lcom/noodlecake/iapv3/Purchase;->getSku()Ljava/lang/String;
+
+    move-result-object v3
+
+    sget-object v4, Lcom/noodlecake/iap/NoodlePurchaseState;->SUCCESS:Lcom/noodlecake/iap/NoodlePurchaseState;
+
+    invoke-virtual {v4}, Lcom/noodlecake/iap/NoodlePurchaseState;->ordinal()I
+
+    move-result v4
+
+    invoke-static {v3, v4}, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->handleMessage(Ljava/lang/String;I)V
+
+    goto :goto_0
+.end method
+
+.method public static restoreCompletedTransactions()V
+    .locals 2
+
+    .prologue
+    .line 223
+    sget-object v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->TAG:Ljava/lang/String;
+
+    const-string v1, "Restore..."
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 224
+    sget-object v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->inventory:Lcom/noodlecake/iapv3/Inventory;
+
+    if-nez v0, :cond_0
+
+    .line 225
+    const/4 v0, 0x1
+
+    sput-boolean v0, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->callNativeWithInventory:Z
+
+    .line 230
+    :goto_0
+    return-void
+
+    .line 229
+    :cond_0
+    invoke-static {}, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->processInventory()V
+
+    goto :goto_0
+.end method
+
+.method private static savePurchaseFlag()V
+    .locals 5
+
+    .prologue
+    .line 154
+    sget-object v2, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->ctx:Landroid/app/Activity;
+
+    sget-object v3, Lcom/noodlecake/iapv3/PurchaseWrapperV3;->ctx:Landroid/app/Activity;
+
+    invoke-virtual {v3}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, v3, v4}, Landroid/app/Activity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object v1
+
+    .line 155
+    .local v1, "prefs":Landroid/content/SharedPreferences;
+    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v0
+
+    .line 156
+    .local v0, "ed":Landroid/content/SharedPreferences$Editor;
+    const-string v2, "noodle_has_purchased"
+
+    const/4 v3, 0x1
+
+    invoke-interface {v0, v2, v3}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+
+    .line 157
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
+
+    .line 158
+    return-void
+.end method
