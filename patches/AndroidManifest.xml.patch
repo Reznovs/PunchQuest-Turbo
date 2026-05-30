@@ -45,13 +45,15 @@
 +++ MODIFIED: AndroidManifest.xml
 
 <?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.noodlecake.punchquest">
-    <!-- targetSdkVersion=22 鏄函32浣嶅簲鐢ㄧ殑鏈€浣冲钩琛＄偣 -->
-    <!-- 28+ 浼氬己鍒?4浣嶄紭鍏堬紝浣嗘父鎴忓彧鏈?armeabi-v7a (32浣? -->
-    <!-- 22 瓒充互鑾峰緱鑹ソ鍏煎鎬э紝鍙堜笉浼氳Е鍙?4浣嶄弗鏍兼ā寮?-->
+    <!-- targetSdkVersion=22 是纯32位应用的最佳平衡点 -->
+    <!-- 28+ 会强制64位优先，但游戏只有 armeabi-v7a (32位) -->
+    <!-- 22 足以获得良好兼容性，又不会触发64位严格模式 -->
     <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="22"/>
-    <!-- 鏄惧紡澹版槑浣跨敤32浣?ABI锛岃64浣嶆墜鏈烘纭洖閫€鍒?2浣嶆ā寮?-->
+    <!-- 显式声明使用32位 ABI，让64位手机正确回退到32位模式 -->
     <uses-feature android:name="android.hardware.screen.portrait" android:required="false"/>
     <application android:exported="true" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="Punch Quest" android:use32bitAbi="true">
+        <!-- 允许 20:9 等长屏全屏显示，避免旧 targetSdk 默认 1.86 黑边 -->
+        <meta-data android:name="android.max_aspect" android:value="2.4"/>
         <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize|smallestScreenSize|layoutDirection|screenLayout" android:label="Punch Quest" android:launchMode="singleTask" android:name="com.noodlecake.punchquest.punchquest" android:theme="@style/NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

@@ -4,7 +4,7 @@
 >
 > [中文文档 (Chinese)](README_CN.md)
 
-**Punch Quest** is a classic arcade-style endless runner released in 2012. It hasn't been updated since **2014**, which means modern Android devices suffer from severe stuttering, 32-bit compatibility issues, and broken IAP flows. This project fixes all of that.
+**Punch Quest** is a classic arcade-style endless runner released in 2012. It hasn't been updated since **2014**, which means modern Android devices suffer from severe stuttering, 32-bit compatibility issues, tall-screen black bars, and broken IAP flows. This project fixes all of that.
 
 ---
 
@@ -22,13 +22,14 @@ All modifications are documented in the `mods/` directory, with side-by-side dif
 
 ---
 
-### 2. 32-bit / 64-bit Compatibility — `AndroidManifest.xml`
+### 2. 32-bit / 64-bit + Tall Screen Compatibility — `AndroidManifest.xml`
 
-**Problem**: The game ships only `armeabi-v7a` (32-bit) native libraries. On 64-bit phones, setting `targetSdkVersion` too high forces the system to prefer `arm64-v8a`, which doesn't exist, leading to crashes.
+**Problem**: The game ships only `armeabi-v7a` (32-bit) native libraries. On 64-bit phones, setting `targetSdkVersion` too high forces the system to prefer `arm64-v8a`, which doesn't exist, leading to crashes. Older target-SDK apps can also be letterboxed on modern tall displays, leaving black non-touchable side bars.
 
 **Fix**:
 - `targetSdkVersion`: 19 → **22** (best balance: avoids 64-bit enforcement, gains modern compatibility)
 - Added `android:use32bitAbi="true"` to force 32-bit ABI mode
+- Added `android.max_aspect=2.4` metadata so 20:9/21:9 phones can use the full screen instead of Android's legacy ~1.86 aspect cap
 - Added `layoutDirection|screenLayout` to `configChanges` to prevent Activity recreation crashes
 
 ---

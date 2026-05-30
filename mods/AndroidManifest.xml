@@ -6,6 +6,8 @@
     <!-- 显式声明使用32位 ABI，让64位手机正确回退到32位模式 -->
     <uses-feature android:name="android.hardware.screen.portrait" android:required="false"/>
     <application android:exported="true" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="Punch Quest" android:use32bitAbi="true">
+        <!-- 允许 20:9 等长屏全屏显示，避免旧 targetSdk 默认 1.86 黑边 -->
+        <meta-data android:name="android.max_aspect" android:value="2.4"/>
         <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize|smallestScreenSize|layoutDirection|screenLayout" android:label="Punch Quest" android:launchMode="singleTask" android:name="com.noodlecake.punchquest.punchquest" android:theme="@style/NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
